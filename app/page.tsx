@@ -1,11 +1,7 @@
 import Link from "next/link";
-import { Button } from '/workspaces/personalportfolio/app/components/ui/button';
-import { Input } from '/workspaces/personalportfolio/app/components/ui/input';
-import { Textarea } from '/workspaces/personalportfolio/app/components/ui/textarea';
-import { PhoneIcon, MailIcon } from '@heroicons/react/outline';
+import { MailIcon } from '@heroicons/react/outline';
 import { Linkedin, GitHub } from 'react-feather';
 import { BsTwitterX } from "react-icons/bs";
-import Image from 'next/image'
 
 export default function Page() {
   return (
