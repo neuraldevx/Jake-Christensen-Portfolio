@@ -45,13 +45,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={cx('text-black bg-white dark:text-white dark:bg-gray-900', GeistSans.variable, GeistMono.variable)}>
-      <body className="">
-        <main className="flex-auto flex flex-col justify-start"> 
+      <body className="flex flex-col min-h-screen">
+        <main className="flex-auto flex flex-col justify-start flex-grow "> 
           <Navbar />
           {children}
-          <Footer />
           <Analytics />
           <SpeedInsights />
+          <Footer />
         </main>
       </body>
     </html>

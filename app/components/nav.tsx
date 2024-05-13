@@ -36,7 +36,7 @@ const navItems = {
 
 export function Navbar() {
   return (
-    <header className="bg-gray-900 text-white w-full">
+    <header className="bg-gray-900 text-white w-full ">
       <div className="pl-1 sm:pl-2 lg:pl-3"> {/* Adjusted padding for closer edge alignment */}
         <div className="flex justify-start items-center h-16"> {/* Changed justify-between to justify-start */}
           <div className="flex items-center">

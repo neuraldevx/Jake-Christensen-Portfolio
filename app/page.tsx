@@ -2,6 +2,10 @@ import Link from "next/link";
 import { MailIcon } from '@heroicons/react/outline';
 import { Linkedin, GitHub } from 'react-feather';
 import { BsTwitterX } from "react-icons/bs";
+import profilePic from 'app/public/assets/dev3pfp.png'
+import mainPic from 'app/public/assets/mainPic.png'
+import Image from 'next/image';
+
 
 export default function Page() {
   return (
@@ -28,15 +32,16 @@ export default function Page() {
           </Link>
         </div>
       </section>
-      {/* pfp */}
+      {/* Profile Picture Section */}
       <section className="container mx-auto px-4 py-8 text-center">
-      <div className="container mx-auto px-4 py-8 text-center">
-      <img
-      src="/assets/dev3pfp.png"  
-      alt="Jacob Christensen"
-      className="" // Tailwind CSS for styling
-    />
-    </div>
+        <div className="">
+        <Image
+          src={mainPic}
+          alt="Picture of the author"
+          width={250} 
+          height={250} 
+        />
+        </div>
       </section>
     </main>
   );

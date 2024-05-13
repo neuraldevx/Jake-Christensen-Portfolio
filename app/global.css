@@ -26,12 +26,17 @@
   }
   html {
     color-scheme: dark;
+    height: 100%; /* Makes sure they take up at least the viewport height */
+    margin: 0;
+    padding: 0;
   }
 }
 
 html {
   min-width: 360px;
 }
+
+body
 
 .prose .anchor {
   @apply absolute invisible no-underline;
