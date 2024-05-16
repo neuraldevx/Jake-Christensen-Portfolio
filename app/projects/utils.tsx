@@ -2,27 +2,32 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-const postsDirectory = path.join(process.cwd(), 'content/blog');
+export type Project = {
+  slug: string;
+  metadata: {
+    title: string;
+    publishedAt: string;
+    summary: string;
+    image?: string;
+  };
+  content: string;
+};
 
-export function getBlogPosts() {
-  const fileNames = fs.readdirSync(postsDirectory);
-  const posts = fileNames.map((fileName) => {
-    const filePath = path.join(postsDirectory, fileName);
+export function getProjects(): Project[] {
+  const projectsDirectory = path.join(process.cwd(), 'content/projects');
+  const filenames = fs.readdirSync(projectsDirectory);
+
+  const projects = filenames.map((filename) => {
+    const filePath = path.join(projectsDirectory, filename);
     const fileContents = fs.readFileSync(filePath, 'utf8');
     const { data, content } = matter(fileContents);
 
     return {
-      slug: fileName.replace(/\.mdx$/, ''),
-      content,
+      slug: filename.replace(/\.mdx$/, ''),
       metadata: data,
-    };
+      content,
+    } as Project;
   });
 
-  return posts;
-}
-
-export function formatDate(dateString: string) {
-  const options = { year: 'numeric', month: 'long', day: 'numeric' } as const;
-  const date = new Date(dateString);
-  return date.toLocaleDateString(undefined, options);
+  return projects;
 }
