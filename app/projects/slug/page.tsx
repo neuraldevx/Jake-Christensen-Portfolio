@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function Blog({ params }: BlogPageProps) {
+export default async function Blog({ params }: { params: { slug: string } }) {
   if (!params || !params.slug) {
     notFound();
   }
