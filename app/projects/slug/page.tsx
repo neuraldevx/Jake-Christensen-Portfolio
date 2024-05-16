@@ -1,41 +1,36 @@
-import { useRouter } from 'next/router';
 import { notFound } from 'next/navigation';
-import { getProjects } from 'app/projects/utils';
-import { baseUrl } from 'app/config'; // Import the baseUrl
+import { CustomMDX } from 'app/components/mdx';
+import { formatDate, getBlogPosts } from 'app/blog/utils';
+import { baseUrl } from 'app/sitemap';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { Metadata } from 'next';
 
-export default function ProjectPage({ params }) {
-  const { slug } = params;
-  const project = getProjects().find(p => p.slug === slug);
-
-  if (!project) {
-    notFound();
-    return null;
-  }
-
-  return (
-    <section>
-      <h1>{project.metadata.title}</h1>
-      <p>{project.metadata.publishedAt}</p>
-      <div>
-        {project.content}
-      </div>
-    </section>
-  );
-}
+type BlogPageProps = {
+  params: { slug: string };
+  source: MDXRemoteSerializeResult;
+  metadata: Metadata;
+};
 
 export async function generateStaticParams() {
-  const projects = getProjects();
-  return projects.map(project => ({
-    slug: project.slug,
+  let posts = getBlogPosts();
+
+  return posts.map((post) => ({
+    slug: post.slug,
   }));
 }
 
-export function generateMetadata({ params }) {
-  const project = getProjects().find(p => p.slug === params.slug);
-  if (!project) return;
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  if (!post) {
+    return;
+  }
 
-  const { title, publishedAt: publishedTime, summary: description, image } = project.metadata;
-  const ogImage = image ? `${baseUrl}${image}` : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+  let { title, publishedAt: publishedTime, summary: description, image } = post.metadata;
+  let ogImage = image ? image : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -45,8 +40,12 @@ export function generateMetadata({ params }) {
       description,
       type: 'article',
       publishedTime,
-      url: `${baseUrl}/projects/${project.slug}`,
-      images: [{ url: ogImage }],
+      url: `${baseUrl}/blog/${post.slug}`,
+      images: [
+        {
+          url: ogImage,
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
@@ -55,4 +54,53 @@ export function generateMetadata({ params }) {
       images: [ogImage],
     },
   };
+}
+
+export default async function Blog({ params }: BlogPageProps) {
+  if (!params || !params.slug) {
+    notFound();
+  }
+
+  const filePath = path.join(process.cwd(), 'content/blog', `${params.slug}.mdx`);
+  const source = fs.readFileSync(filePath, 'utf8');
+  const { content, data } = matter(source);
+  const mdxSource = await serialize(content, { scope: data });
+
+  let post = getBlogPosts().find((post) => post.slug === params.slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  return (
+    <section>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: post.metadata.title,
+            datePublished: post.metadata.publishedAt,
+            dateModified: post.metadata.publishedAt,
+            description: post.metadata.summary,
+            image: post.metadata.image ? `${baseUrl}${post.metadata.image}` : `/og?title=${encodeURIComponent(post.metadata.title)}`,
+            url: `${baseUrl}/blog/${post.slug}`,
+            author: {
+              '@type': 'Person',
+              name: 'My Portfolio',
+            },
+          }),
+        }}
+      />
+      <h1 className="title font-semibold text-2xl tracking-tighter">{post.metadata.title}</h1>
+      <div className="flex justify-between items-center mt-2 mb-8 text-sm">
+        <p className="text-sm text-neutral-600 dark:text-neutral-400">{formatDate(post.metadata.publishedAt)}</p>
+      </div>
+      <article className="prose">
+        <CustomMDX source={mdxSource} />
+      </article>
+    </section>
+  );
 }
