@@ -1,5 +1,5 @@
 import { getBlogPosts } from 'app/blog/utils';
-import { getProjects } from 'app/projects/utils';
+import { getProjects, Project } from 'app/projects/utils';
 
 export const baseUrl = 'https://portfolio-blog-starter.vercel.app';
 
