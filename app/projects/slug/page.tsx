@@ -6,13 +6,10 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { Metadata } from 'next';
 
 type BlogPageProps = {
   params: { slug: string };
-  source: MDXRemoteSerializeResult;
-  metadata: Metadata;
 };
 
 export async function generateStaticParams() {
@@ -23,7 +20,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata | undefined> {
   let post = getBlogPosts().find((post) => post.slug === params.slug);
   if (!post) {
     return;
@@ -56,7 +53,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function Blog({ params }: { params: { slug: string } }) {
+export default async function Blog({ params }: BlogPageProps) {
   if (!params || !params.slug) {
     notFound();
   }
