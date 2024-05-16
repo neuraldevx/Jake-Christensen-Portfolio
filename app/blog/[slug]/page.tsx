@@ -1,20 +1,41 @@
-import { notFound } from 'next/navigation'
-import { CustomMDX } from 'app/components/mdx'
-import { formatDate, getBlogPosts } from 'app/blog/utils'
-import { baseUrl } from 'app/sitemap'
+import { notFound } from 'next/navigation';
+import { CustomMDX } from 'app/components/mdx';
+import { formatDate, getBlogPosts } from 'app/blog/utils';
+import { baseUrl } from 'app/sitemap';
+import { Metadata } from 'next';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { ParsedUrlQuery } from 'querystring';
 
+// Define the types
+type BlogPageProps = {
+  params: { slug: string };
+  source: MDXRemoteSerializeResult;
+  metadata: Metadata;
+};
+
+// Generate static params for the dynamic routes
 export async function generateStaticParams() {
-  let posts = getBlogPosts()
+  let posts = getBlogPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
-  }))
+  }));
 }
 
-export function generateMetadata({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug)
+// Generate metadata for each blog post
+export function generateMetadata({ params }: { params: ParsedUrlQuery }) {
+  if (!params || !params.slug) {
+    return;
+  }
+
+  let post = getBlogPosts().find((post) => post.slug === params.slug);
   if (!post) {
-    return
+    return;
   }
 
   let {
@@ -22,8 +43,10 @@ export function generateMetadata({ params }) {
     publishedAt: publishedTime,
     summary: description,
     image,
-  } = post.metadata
-  let ogImage = image ? image : `${baseUrl}/og?title=${encodeURIComponent(title)}`
+  } = post.metadata;
+  let ogImage = image
+    ? image
+    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -46,14 +69,19 @@ export function generateMetadata({ params }) {
       description,
       images: [ogImage],
     },
-  }
+  };
 }
 
-export default function Blog({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug)
+// Main Blog Component
+export default function Blog({ params, source, metadata }: BlogPageProps) {
+  if (!params || !params.slug) {
+    notFound();
+  }
+
+  let post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -89,8 +117,45 @@ export default function Blog({ params }) {
         </p>
       </div>
       <article className="prose">
-        <CustomMDX source={post.content} />
+        <CustomMDX source={source} />
       </article>
     </section>
-  )
+  );
 }
+
+// Fetch the blog post content and metadata
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  if (!params || !params.slug) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const filePath = path.join(process.cwd(), 'content/blog', `${params.slug}.mdx`);
+  const source = fs.readFileSync(filePath, 'utf8');
+  const { content, data } = matter(source);
+  const mdxSource = await serialize(content, { scope: data });
+
+  return {
+    props: {
+      params,
+      source: mdxSource,
+      metadata: data,
+    },
+  };
+};
+
+// Define the paths for the blog posts
+export const getStaticPaths: GetStaticPaths = async () => {
+  const files = fs.readdirSync(path.join(process.cwd(), 'content/blog'));
+  const paths = files.map((filename) => ({
+    params: {
+      slug: filename.replace('.mdx', ''),
+    },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
