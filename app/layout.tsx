@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import Footer from './components/footer'
 import { baseUrl } from './sitemap'
+import ScrollProgressBar from './components/ScrollProgressBar';
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -47,6 +48,7 @@ export default function RootLayout({
     <html lang="en" className={cx('text-black bg-white dark:text-white dark:bg-gray-900', GeistSans.variable, GeistMono.variable)}>
       <body className="flex flex-col min-h-screen">
         <main className="flex-auto flex flex-col justify-start flex-grow "> 
+        <ScrollProgressBar />
           <Navbar />
           {children}
           <Analytics />

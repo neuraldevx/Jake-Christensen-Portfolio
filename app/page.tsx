@@ -5,7 +5,8 @@ import { BsTwitterX } from "react-icons/bs";
 import profilePic from 'app/public/assets/dev3pfp.png'
 import mainPic from 'app/public/assets/mainPic.png'
 import Image from 'next/image';
-
+import { FaGraduationCap } from "react-icons/fa";
+import { CiUser } from "react-icons/ci";
 
 export default function Page() {
   return (
@@ -41,6 +42,52 @@ export default function Page() {
           width={250} 
           height={250} 
         />
+        </div>
+      </section>
+      {/* about me*/}
+      <section className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4">
+          <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-3">
+            {[
+              {
+                title: "About",
+                content: "Jacob is a skilled software engineer with a passion for building innovative and user-friendly applications. He has extensive experience in full-stack development, leveraging technologies such as React, Node.js, and MongoDB to deliver high-quality solutions."
+              },
+              {
+                title: "Education",
+                content: [
+                  { header: "Bachelor of Science in Computer Science", subtext: "University of California, Berkeley" },
+                  { header: "Magna Cum Laude" }
+                ]
+              },
+              {
+                title: "Experience",
+                content: [
+                  { header: "Senior Software Engineer", subtext: "Acme Inc., 2019 - Present" },
+                  { header: "Software Engineer Intern", subtext: "Vercel, 2018" }
+                ]
+              }
+            ].map((section, idx) => (
+              <div key={idx} className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 ease-in-out hover:scale-105 transform">
+                <h2 className="text-2xl font-bold mb-4">{section.title}</h2>
+                <div className="text-gray-600 dark:text-gray-400">
+                  {Array.isArray(section.content) ? (
+                    <ul className="space-y-2">
+                      {section.content.map((item, index) => (
+                        <li key={index}>
+                          <strong className="font-semibold">{item.header}</strong>
+                          {item.subtext && <br />}
+                          {item.subtext}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>{section.content}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </main>
