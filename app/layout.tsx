@@ -1,13 +1,14 @@
-import './global.css'
-import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import { Navbar } from './components/nav'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/next'
-import Footer from './components/footer'
-import { baseUrl } from './sitemap'
+import 'bulma/css/bulma.min.css';
+import 'app/styles/global.css';  // Ensure this path is correct
+import type { Metadata } from 'next';
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
+import { Navbar } from './components/nav';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import Footer from './components/footer';
 import ScrollProgressBar from './components/ScrollProgressBar';
+import { baseUrl } from './config'; // Add this import if you haven't already
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -35,9 +36,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-}
+};
 
-const cx = (...classes) => classes.filter(Boolean).join(' ')
+const cx = (...classes) => classes.filter(Boolean).join(' ');
 
 export default function RootLayout({
   children,
@@ -47,14 +48,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={cx('text-black bg-white dark:text-white dark:bg-gray-900', GeistSans.variable, GeistMono.variable)}>
       <body className="flex flex-col min-h-screen">
-        <main className="flex-auto flex flex-col justify-start flex-grow "> 
         <ScrollProgressBar />
-          <Navbar />
+        <Navbar />
+        <main className="flex-auto flex flex-col justify-start flex-grow">
           {children}
-          <Analytics />
-          <SpeedInsights />
-          <Footer />
         </main>
+        <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

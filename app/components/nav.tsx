@@ -1,3 +1,4 @@
+// components/nav.tsx
 import Link from 'next/link';
 import { CiCoffeeCup } from "react-icons/ci";
 
@@ -20,7 +21,7 @@ function MountainIcon() {
 const navItems = {
   '/': {
     name: 'Home',
-    icon: <MountainIcon />  // Icon for the homepage link
+    icon: <MountainIcon />
   },
   '/blog': {
     name: 'Blog',
@@ -28,33 +29,34 @@ const navItems = {
   '/projects': {
     name: 'Projects'
   },
-    'https://buymeacoffee.com/jakechristensen': { // Replace 'yourusername' with your actual username on Buy Me a Coffee
-      name: 'Buy Me a Coffee',
-      icon: <div className='py-4 flex'><CiCoffeeCup /> </div> // Coffee cup GIF icon
+  'https://buymeacoffee.com/jakechristensen': {
+    name: 'Buy Me a Coffee',
+    icon: <div className='py-4 flex'><CiCoffeeCup /></div>
   },
 };
 
 export function Navbar() {
   return (
-    <header className="bg-gray-900 text-white w-full ">
-      <div className="pl-1 sm:pl-2 lg:pl-3"> {/* Adjusted padding for closer edge alignment */}
-        <div className="flex justify-start items-center h-16"> {/* Changed justify-between to justify-start */}
-          <div className="flex items-center">
-            <div className="flex-shrink-0 flex items-center mr-4">
-              <Link href="/">
-                {navItems['/'].icon}
-              </Link>
-            </div>
-            <div className="flex">
-              {Object.entries(navItems).map(([path, { name }]) => (
-                <Link key={path} href={path} className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid">
+        <Link className="navbar-brand" href="/">
+          {navItems['/'].icon}
+        </Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            {Object.entries(navItems).map(([path, { name }]) => (
+              <li className="nav-item" key={path}>
+                <Link href={path} className="nav-link">
                   {name}
                 </Link>
-              ))}
-            </div>
-          </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-    </header>
+    </nav>
   );
 }

@@ -1,3 +1,6 @@
+// app/components/footer.tsx
+import React from 'react';
+
 function ArrowIcon() {
   return (
     <svg
@@ -12,50 +15,49 @@ function ArrowIcon() {
         fill="currentColor"
       />
     </svg>
-  )
+  );
 }
 
 export default function Footer() {
   return (
-    <footer className="mt-64 bg-gray-800 text-white p-4 text-center px-24 py-1 hover:border-t-4">
-      <ul className="font-sm mt-16 flex space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="/rss"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">rss</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://github.com/vercel/next.js"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">github</p>
-          </a>
-        </li>
-        <li>
-          <a
-            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://vercel.com/templates/next.js/portfolio-starter-kit"
-          >
-            <ArrowIcon />
-            <p className="ml-2 h-7">view source</p>
-          </a>
-        </li>
-      </ul>
-      <p className="mt-8 text-neutral-600 dark:text-neutral-300">
-        © {new Date().getFullYear()} MIT Licensed
-      </p>
+    <footer className="footer mt-64 p-4 has-text-centered">
+      <div className="content has-text-centered">
+        <ul className="columns is-centered is-multiline">
+          <li className="column is-narrow">
+            <a
+              className="button is-light is-small"
+              rel="noopener noreferrer"
+              target="_blank"
+              href="/rss"
+            >
+              <ArrowIcon />
+              <span className="ml-2">rss</span>
+            </a>
+          </li>
+          <li className="column is-narrow">
+            <a
+              className="button is-light is-small"
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://github.com/vercel/next.js"
+            >
+              <ArrowIcon />
+              <span className="ml-2">github</span>
+            </a>
+          </li>
+          <li className="column is-narrow">
+            <a
+              className="button is-light is-small"
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://twitter.com/Nextjs"
+            >
+              <ArrowIcon />
+              <span className="ml-2">twitter</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </footer>
-  )
+  );
 }

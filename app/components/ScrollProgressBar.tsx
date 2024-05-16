@@ -1,4 +1,3 @@
-// components/ScrollProgressBar.js
 "use client"; // Ensure this is treated as a client component
 
 import { useEffect, useState } from 'react';
@@ -29,7 +28,7 @@ const ScrollProgressBar = () => {
         left: 0,
         right: 0,
         height: '5px',
-        backgroundColor: '#0070f3',
+        backgroundColor: 'var(--outer-space)',
         transform: `scaleX(${progress})`,
         transformOrigin: '0%',
         zIndex: 9999
