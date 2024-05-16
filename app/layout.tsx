@@ -1,3 +1,4 @@
+"use client";
 import 'bulma/css/bulma.min.css';
 import 'app/styles/global.css';  // Ensure this path is correct
 import type { Metadata } from 'next';
