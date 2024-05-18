@@ -1,16 +1,24 @@
-import { BlogPosts } from 'app/components/posts'
+import { BlogPosts } from 'app/components/posts';
 
 export const metadata = {
   title: 'Blog',
-  description: 'Read my blog.',
+};
+
+// Fetch the blog posts data
+async function getBlogPosts() {
+  const res = await fetch('/api/blog-posts'); // Adjust the fetch path as necessary
+  return res.json();
 }
 
-export default function Page() {
+const BlogPage = async () => {
+  const posts = await getBlogPosts();
+
   return (
-    <section>
-      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">My Blog</h1>
-      {/* <BlogPosts /> */}
-      <p>coming soon ...</p>
-    </section>
-  )
-}
+    <div>
+      <h1>Blog</h1>
+      <BlogPosts posts={posts} />
+    </div>
+  );
+};
+
+export default BlogPage;

@@ -2,34 +2,29 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-export interface ProjectMetadata {
-  title: string;
-  publishedAt: string;
-  summary: string;
-  image: string;
-}
+const projectsDirectory = path.join(process.cwd(), 'content/projects');
 
+// Define and export the Project type
 export interface Project {
   slug: string;
-  metadata: ProjectMetadata;
-  content: string;
+  metadata: {
+    title: string;
+    publishedAt: string;
+  };
 }
 
 export function getProjects(): Project[] {
-  const projectDir = path.join(process.cwd(), 'content/projects');
-  const filenames = fs.readdirSync(projectDir);
+  const fileNames = fs.readdirSync(projectsDirectory);
+  const allProjectsData = fileNames.map((fileName) => {
+    const slug = fileName.replace(/\.mdx$/, '');
+    const fullPath = path.join(projectsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const matterResult = matter(fileContents);
 
-  const projects = filenames.map((filename) => {
-    const filePath = path.join(projectDir, filename);
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const { data, content } = matter(fileContents);
-    
     return {
-      slug: filename.replace(/\.mdx$/, ''),
-      metadata: data as ProjectMetadata,
-      content,
+      slug,
+      metadata: matterResult.data,
     };
   });
-
-  return projects;
+  return allProjectsData;
 }

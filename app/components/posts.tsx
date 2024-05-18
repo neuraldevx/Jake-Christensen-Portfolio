@@ -1,8 +1,20 @@
+// Import necessary libraries and utilities
+import React from 'react';
 import { formatDate } from 'app/blog/utils';
 
-// Rest of your imports and component code
+// Define types for the post metadata and post
+interface PostMetadata {
+  title: string;
+  publishedAt: string;
+}
 
-export default function Posts({ posts }) {
+interface Post {
+  slug: string;
+  metadata: PostMetadata;
+}
+
+// Define the BlogPosts component with posts as a prop
+export const BlogPosts = ({ posts }: { posts: Post[] }) => {
   return (
     <div>
       {posts.map((post) => (
@@ -17,4 +29,4 @@ export default function Posts({ posts }) {
       ))}
     </div>
   );
-}
+};

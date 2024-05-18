@@ -2,41 +2,24 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-// Define the types for the blog posts
-export interface BlogPostMetadata {
-  title: string;
-  publishedAt: string;
-  summary: string;
-  image: string;
-}
+const postsDirectory = path.join(process.cwd(), 'content/blog');
 
-export interface BlogPost {
-  slug: string;
-  metadata: BlogPostMetadata;
-  content: string;
-}
+export function getBlogPosts() {
+  const fileNames = fs.readdirSync(postsDirectory);
+  const allPostsData = fileNames.map((fileName) => {
+    const slug = fileName.replace(/\.mdx$/, '');
+    const fullPath = path.join(postsDirectory, fileName);
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const matterResult = matter(fileContents);
 
-// Function to get all blog posts
-export function getBlogPosts(): BlogPost[] {
-  const blogDir = path.join(process.cwd(), 'content/blog');
-  const filenames = fs.readdirSync(blogDir);
-
-  const posts = filenames.map((filename) => {
-    const filePath = path.join(blogDir, filename);
-    const fileContents = fs.readFileSync(filePath, 'utf8');
-    const { data, content } = matter(fileContents);
-    
     return {
-      slug: filename.replace(/\.mdx$/, ''),
-      metadata: data as BlogPostMetadata,
-      content,
+      slug,
+      metadata: matterResult.data,
     };
   });
-
-  return posts;
+  return allPostsData;
 }
 
-// Function to format the date
 export function formatDate(dateString: string): string {
   const date = new Date(dateString);
   return date.toLocaleDateString('en-US', {
