@@ -1,33 +1,37 @@
 import { notFound } from 'next/navigation';
 import { CustomMDX } from 'app/components/mdx';
-import { formatDate, getBlogPosts } from 'app/blog/utils';
-import { baseUrl } from 'app/sitemap';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { serialize } from 'next-mdx-remote/serialize';
 import { Metadata } from 'next';
 
-type BlogPageProps = {
+type ProjectPageProps = {
   params: { slug: string };
 };
 
 export async function generateStaticParams() {
-  let posts = getBlogPosts();
+  const projectsDirectory = path.join(process.cwd(), 'content/projects');
+  const filenames = fs.readdirSync(projectsDirectory);
 
-  return posts.map((post) => ({
-    slug: post.slug,
+  return filenames.map((filename) => ({
+    slug: filename.replace(/\.mdx$/, ''),
   }));
 }
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata | undefined> {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
-  if (!post) {
+  const projectsDirectory = path.join(process.cwd(), 'content/projects');
+  const filePath = path.join(projectsDirectory, `${params.slug}.mdx`);
+  
+  if (!fs.existsSync(filePath)) {
     return;
   }
 
-  let { title, publishedAt: publishedTime, summary: description, image } = post.metadata;
-  let ogImage = image ? image : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+  const fileContents = fs.readFileSync(filePath, 'utf8');
+  const { data } = matter(fileContents);
+
+  let { title, publishedAt: publishedTime, summary: description, image } = data;
+  let ogImage = image ? image : `/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
@@ -37,7 +41,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       description,
       type: 'article',
       publishedTime,
-      url: `${baseUrl}/blog/${post.slug}`,
+      url: `/projects/${params.slug}`,
       images: [
         {
           url: ogImage,
@@ -53,21 +57,21 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-export default async function Blog({ params }: BlogPageProps) {
+export default async function Project({ params }: ProjectPageProps) {
   if (!params || !params.slug) {
     notFound();
   }
 
-  const filePath = path.join(process.cwd(), 'content/blog', `${params.slug}.mdx`);
+  const projectsDirectory = path.join(process.cwd(), 'content/projects');
+  const filePath = path.join(projectsDirectory, `${params.slug}.mdx`);
+  
+  if (!fs.existsSync(filePath)) {
+    notFound();
+  }
+
   const source = fs.readFileSync(filePath, 'utf8');
   const { content, data } = matter(source);
   const mdxSource = await serialize(content, { scope: data });
-
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
-
-  if (!post) {
-    notFound();
-  }
 
   return (
     <section>
@@ -78,12 +82,12 @@ export default async function Blog({ params }: BlogPageProps) {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'BlogPosting',
-            headline: post.metadata.title,
-            datePublished: post.metadata.publishedAt,
-            dateModified: post.metadata.publishedAt,
-            description: post.metadata.summary,
-            image: post.metadata.image ? `${baseUrl}${post.metadata.image}` : `/og?title=${encodeURIComponent(post.metadata.title)}`,
-            url: `${baseUrl}/blog/${post.slug}`,
+            headline: data.title,
+            datePublished: data.publishedAt,
+            dateModified: data.publishedAt,
+            description: data.summary,
+            image: data.image ? data.image : `/og?title=${encodeURIComponent(data.title)}`,
+            url: `/projects/${params.slug}`,
             author: {
               '@type': 'Person',
               name: 'My Portfolio',
@@ -91,9 +95,13 @@ export default async function Blog({ params }: BlogPageProps) {
           }),
         }}
       />
-      <h1 className="title font-semibold text-2xl tracking-tighter">{post.metadata.title}</h1>
+      <h1 className="title font-semibold text-2xl tracking-tighter">{data.title}</h1>
       <div className="flex justify-between items-center mt-2 mb-8 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">{formatDate(post.metadata.publishedAt)}</p>
+        <p className="text-sm text-neutral-600 dark:text-neutral-400">{new Date(data.publishedAt).toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}</p>
       </div>
       <article className="prose">
         <CustomMDX source={mdxSource} />
