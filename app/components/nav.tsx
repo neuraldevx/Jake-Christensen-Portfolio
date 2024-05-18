@@ -23,9 +23,6 @@ const navItems = {
     name: 'Home',
     icon: <MountainIcon />
   },
-  // '/blog': {
-  //   name: 'Blog',
-  // },
   '/projects': {
     name: 'Projects'
   },
@@ -37,24 +34,26 @@ const navItems = {
 
 export function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="container-fluid">
-        <Link className="navbar-brand" href="/">
-          {navItems['/'].icon}
-        </Link>
-        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
+    <nav className="navbar is-dark">
+      <div className="container">
+        <div className="navbar-brand">
+          <Link href="/" className="navbar-item">
+            {navItems['/'].icon}
+          </Link>
+          <div className="navbar-burger" data-target="navbarMenu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div id="navbarMenu" className="navbar-menu">
+          <div className="navbar-start">
             {Object.entries(navItems).map(([path, { name }]) => (
-              <li className="nav-item" key={path}>
-                <Link href={path} className="nav-link">
-                  {name}
-                </Link>
-              </li>
+              <Link href={path} key={path} className="navbar-item">
+                {name}
+              </Link>
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </nav>
