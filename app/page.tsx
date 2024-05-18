@@ -1,21 +1,51 @@
-// app/page.tsx
 'use client';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { MailIcon } from '@heroicons/react/outline';
 import { Linkedin, GitHub } from 'react-feather';
-import { BsTwitterX } from "react-icons/bs";
+import { BsTwitterX } from 'react-icons/bs';
 import Image from 'next/image';
-import { FaGraduationCap } from "react-icons/fa";
-import { CiUser } from "react-icons/ci";
+import { FaGraduationCap } from 'react-icons/fa';
+import { CiUser } from 'react-icons/ci';
+import axios from 'axios';
 import mainImage from './public/assets/mainPic.png';
 
 export default function Page() {
   const [fadeIn, setFadeIn] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [formStatus, setFormStatus] = useState('');
 
   useEffect(() => {
     setFadeIn(true);
   }, []);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('/api/contact', formData);
+      if (response.status === 200) {
+        setFormStatus('Message sent successfully!');
+        setFormData({
+          name: '',
+          email: '',
+          message: '',
+        });
+      }
+    } catch (error) {
+      setFormStatus(`Failed to send message: ${error.response.data.error}`);
+    }
+  };
 
   return (
     <main className="p-4">
@@ -58,35 +88,36 @@ export default function Page() {
           <div className="columns is-multiline">
             {[
               {
-                title: "About",
-                content: "Jacob is a skilled software engineer with a passion for building innovative and user-friendly applications. He has extensive experience in full-stack development, leveraging technologies such as React, Node.js, and MongoDB to deliver high-quality solutions. In his free time, Jacob enjoys exploring new tech trends, contributing to open-source projects, and hiking.",
-                icon: <CiUser className="icon" />
+                title: 'About',
+                content:
+                  'Jacob is a skilled software engineer with a passion for building innovative and user-friendly applications. He has extensive experience in full-stack development, leveraging technologies such as React, Node.js, and MongoDB to deliver high-quality solutions. In his free time, Jacob enjoys exploring new tech trends, contributing to open-source projects, and hiking.',
+                icon: <CiUser className="icon" />,
               },
               {
-                title: "Education",
+                title: 'Education',
                 content: [
-                  { header: "Bachelor of Science in Data Science", subtext: "University of Wisconsin-Madison, 2024" },
-                  { header: "Certificate in Computer Science", subtext: "University of Wisconsin-Madison, 2024" }
+                  { header: 'Bachelor of Science in Data Science', subtext: 'University of Wisconsin-Madison, 2024' },
+                  { header: 'Certificate in Computer Science', subtext: 'University of Wisconsin-Madison, 2024' },
                 ],
-                icon: <FaGraduationCap className="icon" />
+                icon: <FaGraduationCap className="icon" />,
               },
               {
-                title: "Experience",
+                title: 'Experience',
                 content: [
-                  { header: "Software Developer Intern", subtext: "Publix, 2023 - Present" },
-                  { header: "IT Quality Assurance Technician", subtext: "University of Wisconsin-Whitewater IT Help Desk, 2022" }
+                  { header: 'Software Developer Intern', subtext: 'Publix, 2023 - Present' },
+                  { header: 'IT Quality Assurance Technician', subtext: 'University of Wisconsin-Whitewater IT Help Desk, 2022' },
                 ],
-                icon: <FaGraduationCap className="icon" />
+                icon: <FaGraduationCap className="icon" />,
               },
               {
-                title: "Skills",
+                title: 'Skills',
                 content: [
-                  { header: "Programming Languages", subtext: "Python, Java, SQL, C, JavaScript, TypeScript" },
-                  { header: "Frameworks & Tools", subtext: "React, Node.js, MongoDB, MySQL, Docker, Git" },
-                  { header: "Data Science & Machine Learning", subtext: "Pandas, NumPy, TensorFlow, Scikit-learn" }
+                  { header: 'Programming Languages', subtext: 'Python, Java, SQL, C, JavaScript, TypeScript' },
+                  { header: 'Frameworks & Tools', subtext: 'React, Node.js, MongoDB, MySQL, Docker, Git' },
+                  { header: 'Data Science & Machine Learning', subtext: 'Pandas, NumPy, TensorFlow, Scikit-learn' },
                 ],
-                icon: <FaGraduationCap className="icon" />
-              }
+                icon: <FaGraduationCap className="icon" />,
+              },
             ].map((section, idx) => (
               <div key={idx} className="column is-one-third mb-4">
                 <div className="card box-shadow-hover project-card">
@@ -121,39 +152,49 @@ export default function Page() {
           <div className="columns is-multiline">
             {[
               {
-                title: "Fundamentals of the Databricks Lakehouse Platform Accreditation",
-                issuer: "Databricks",
-                date: "Issued Apr 2024",
-                credentialId: "102062094",
-                skills: "Azure Databricks, Data Lake Fundamentals, Software Development"
+                title: 'Fundamentals of the Databricks Lakehouse Platform Accreditation',
+                issuer: 'Databricks',
+                date: 'Issued Apr 2024',
+                credentialId: '102062094',
+                skills: 'Azure Databricks, Data Lake Fundamentals, Software Development',
               },
               {
-                title: "Generative AI Fundamentals Accreditation",
-                issuer: "Databricks",
-                date: "Issued Apr 2024",
-                credentialId: "E-1Q55ZV",
-                skills: "Generative AI, Large Language Models (LLM)"
+                title: 'Generative AI Fundamentals Accreditation',
+                issuer: 'Databricks',
+                date: 'Issued Apr 2024',
+                credentialId: 'E-1Q55ZV',
+                skills: 'Generative AI, Large Language Models (LLM)',
               },
               {
-                title: "Intro to Machine Learning",
-                issuer: "Kaggle",
-                date: "Issued Apr 2024",
-                skills: "Machine Learning"
-              }
+                title: 'Intro to Machine Learning',
+                issuer: 'Kaggle',
+                date: 'Issued Apr 2024',
+                skills: 'Machine Learning',
+              },
             ].map((certification, idx) => (
-              <div key={idx} className="column is-one-third">
+              <div key={idx} className="column is-one-third mb-4">
                 <div className="card box-shadow-hover project-card">
                   <header className="card-header">
                     <p className="card-header-title is-centered">
-                      {certification.title}
+                      <FaGraduationCap className="icon" /> <span className="ml-2">{certification.title}</span>
                     </p>
                   </header>
                   <div className="card-content">
                     <div className="content">
-                      <p><strong>Issuer:</strong> {certification.issuer}</p>
-                      <p><strong>Date:</strong> {certification.date}</p>
-                      {certification.credentialId && <p><strong>Credential ID:</strong> {certification.credentialId}</p>}
-                      <p><strong>Skills:</strong> {certification.skills}</p>
+                      <p>
+                        <strong>Issuer:</strong> {certification.issuer}
+                      </p>
+                      <p>
+                        <strong>Date:</strong> {certification.date}
+                      </p>
+                      {certification.credentialId && (
+                        <p>
+                          <strong>Credential ID:</strong> {certification.credentialId}
+                        </p>
+                      )}
+                      <p>
+                        <strong>Skills:</strong> {certification.skills}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -162,41 +203,58 @@ export default function Page() {
           </div>
 
           <h2 className="title is-2 mt-6">Contact</h2>
-          <div className="columns is-centered">
-            <div className="column is-half">
-              <div className="card box-shadow-hover project-card">
-                <div className="card-content">
-                  <form name="contact" method="POST" data-netlify="true">
-                    <input type="hidden" name="form-name" value="contact" />
-                    <div className="field">
-                      <label className="label">Name</label>
-                      <div className="control">
-                        <input className="input" type="text" name="name" required />
-                      </div>
-                    </div>
-                    <div className="field">
-                      <label className="label">Email</label>
-                      <div className="control">
-                        <input className="input" type="email" name="email" required />
-                      </div>
-                    </div>
-                    <div className="field">
-                      <label className="label">Message</label>
-                      <div className="control">
-                        <textarea className="textarea" name="message" required></textarea>
-                      </div>
-                    </div>
-                    <div className="field is-grouped">
-                      <div className="control">
-                        <button className="button is-link" type="submit">Submit</button>
-                      </div>
-                    </div>
-                  </form>
+          <div className="columns">
+            <div className="column is-half is-offset-one-quarter">
+              <form onSubmit={handleSubmit}>
+                <div className="field">
+                  <label className="label">Name</label>
+                  <div className="control">
+                    <input
+                      className="input"
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
                 </div>
-              </div>
+                <div className="field">
+                  <label className="label">Email</label>
+                  <div className="control">
+                    <input
+                      className="input"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="field">
+                  <label className="label">Message</label>
+                  <div className="control">
+                    <textarea
+                      className="textarea"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+                <div className="field is-grouped">
+                  <div className="control">
+                    <button className="button is-link" type="submit">
+                      Submit
+                    </button>
+                  </div>
+                </div>
+                {formStatus && <p className="mt-4 has-text-centered">{formStatus}</p>}
+              </form>
             </div>
           </div>
-
         </div>
       </section>
     </main>
