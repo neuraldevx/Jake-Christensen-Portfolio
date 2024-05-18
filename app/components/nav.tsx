@@ -23,9 +23,9 @@ const navItems = {
     name: 'Home',
     icon: <MountainIcon />
   },
-  '/blog': {
-    name: 'Blog',
-  },
+  // '/blog': {
+  //   name: 'Blog',
+  // },
   '/projects': {
     name: 'Projects'
   },
