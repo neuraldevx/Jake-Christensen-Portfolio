@@ -7,6 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Footer from './components/footer';
 import ScrollProgressBar from './components/ScrollProgressBar';
+import Jumbotron from './components/AnimatedJumbotron';
 
 const cx = (...classes) => classes.filter(Boolean).join(' ');
 

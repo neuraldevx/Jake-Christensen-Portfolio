@@ -39,7 +39,7 @@ export default function Footer() {
               className="button is-light is-small"
               rel="noopener noreferrer"
               target="_blank"
-              href="https://github.com/vercel/next.js"
+              href="https://github.com/neuraldevx"
             >
               <ArrowIcon />
               <span className="ml-2">github</span>
@@ -50,7 +50,7 @@ export default function Footer() {
               className="button is-light is-small"
               rel="noopener noreferrer"
               target="_blank"
-              href="https://twitter.com/Nextjs"
+              href="https://twitter.com/realjakechris"
             >
               <ArrowIcon />
               <span className="ml-2">twitter</span>

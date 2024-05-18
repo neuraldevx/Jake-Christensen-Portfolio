@@ -1,7 +1,8 @@
+// app/pages/projects.tsx
 import React from 'react';
 import Image from 'next/image';
-import projectOneImage from 'app/public/assets/project-one.png';
-import projectTwoImage from 'app/public/assets/project-two.png';
+import projectOneImage from 'app/public/assets/proj1.jpg';
+import projectTwoImage from 'app/public/assets/proj2.jpg';
 
 export default function Projects() {
   return (
@@ -10,10 +11,16 @@ export default function Projects() {
         <h1 className="title has-text-centered">Projects</h1>
         <div className="columns is-multiline">
           <div className="column is-one-third">
-            <div className="card project-card">
+            <div className="card project-card hover-card">
               <div className="card-image">
                 <figure className="image is-4by3">
-                  <Image src={projectOneImage} alt="Project One" layout="responsive" />
+                  <Image
+                    src={projectOneImage}
+                    alt="Project One"
+                    layout="responsive fit"
+                    objectFit="cover"
+                    className="project-image"
+                  />
                 </figure>
               </div>
               <div className="card-content">
@@ -33,10 +40,16 @@ export default function Projects() {
           </div>
 
           <div className="column is-one-third">
-            <div className="card project-card">
+            <div className="card project-card hover-card">
               <div className="card-image">
                 <figure className="image is-4by3">
-                  <Image src={projectTwoImage} alt="Project Two" layout="responsive" />
+                  <Image
+                    src={projectTwoImage}
+                    alt="Project Two"
+                    layout="responsive fit"
+                    objectFit="cover"
+                    className="project-image"
+                  />
                 </figure>
               </div>
               <div className="card-content">
