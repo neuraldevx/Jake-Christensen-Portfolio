@@ -9,7 +9,8 @@ export default async function sitemap() {
     lastModified: post.metadata.publishedAt,
   }));
 
-  const projects = getProjects().map((project) => ({
+  const projects: Project[] = getProjects();
+  const projectUrls = projects.map((project) => ({
     url: `${baseUrl}/projects/${project.slug}`,
     lastModified: project.metadata.publishedAt,
   }));
@@ -19,5 +20,5 @@ export default async function sitemap() {
     lastModified: new Date().toISOString().split('T')[0],
   }));
 
-  return [...routes, ...blogs, ...projects]; // Combine all routes, blogs, and projects
+  return [...routes, ...blogs, ...projectUrls]; // Combine all routes, blogs, and projects
 }

@@ -21,10 +21,17 @@ export function getProjects(): Project[] {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const matterResult = matter(fileContents);
 
+    // Ensure metadata is correctly typed
+    const metadata: { title: string; publishedAt: string } = {
+      title: matterResult.data.title,
+      publishedAt: matterResult.data.publishedAt,
+    };
+
     return {
       slug,
-      metadata: matterResult.data,
+      metadata,
     };
   });
+
   return allProjectsData;
 }
