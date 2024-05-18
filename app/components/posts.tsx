@@ -1,8 +1,6 @@
-// Import necessary libraries and utilities
 import React from 'react';
 import { formatDate } from 'app/blog/utils';
 
-// Define types for the post metadata and post
 interface PostMetadata {
   title: string;
   publishedAt: string;
@@ -13,7 +11,6 @@ interface Post {
   metadata: PostMetadata;
 }
 
-// Define the BlogPosts component with posts as a prop
 export const BlogPosts = ({ posts }: { posts: Post[] }) => {
   return (
     <div>

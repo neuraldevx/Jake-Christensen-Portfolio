@@ -4,10 +4,14 @@ export const metadata = {
   title: 'Blog',
 };
 
-// Fetch the blog posts data
-async function getBlogPosts() {
-  const res = await fetch('/api/blog-posts'); // Adjust the fetch path as necessary
-  return res.json();
+export async function getBlogPosts() {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  const response = await fetch(`${baseUrl}/api/blog-posts`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch blog posts');
+  }
+  const data = await response.json();
+  return data;
 }
 
 const BlogPage = async () => {
