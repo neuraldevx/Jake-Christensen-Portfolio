@@ -1,5 +1,8 @@
 # Personal Portfolio
 
+<img width="1440" alt="image" src="https://github.com/neuraldevx/Jake-Christensen-Portfolio/assets/83853752/f6aa05fb-a3c5-4dc9-af30-c1806ecd3669">
+
+
 ## Table of Contents
 
 - [About](#about)
