@@ -13,7 +13,7 @@
 
 ## About
 
-This is a personal portfolio website for Jacob Christensen, showcasing his projects, skills, and experience. The website is built using Next.js and styled with Tailwind CSS and Bulma. It also features dynamic content fetched from GitHub and includes a blog section for sharing articles and insights.
+This is a personal portfolio website, showcasing projects, skills, and experience. The website is built using **Next.js** and styled with **Tailwind CSS** and **Bulma**. It also features dynamic content fetched from GitHub and includes a blog section for sharing articles and insights.
 
 ## Features
 
@@ -34,4 +34,3 @@ This is a personal portfolio website for Jacob Christensen, showcasing his proje
 - [Vercel](https://vercel.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [GitHub API](https://docs.github.com/en/rest)
-=======
