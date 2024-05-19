@@ -1,6 +1,7 @@
 // components/nav.tsx
 import Link from 'next/link';
 import { CiCoffeeCup } from "react-icons/ci";
+import StarButton from './StarButton';
 
 function MoonIcon() {
   return (
@@ -53,6 +54,11 @@ export function Navbar() {
                 {name}
               </Link>
             ))}
+          </div>
+          <div className="navbar-end">
+            <div className="navbar-item">
+              <StarButton />
+            </div>
           </div>
         </div>
       </div>

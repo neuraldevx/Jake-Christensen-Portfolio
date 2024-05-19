@@ -15,6 +15,7 @@ import ProfileSection from './components/ProfileSection';
 import Jumbotron from './components/AnimatedJumbotron'; // Import the Jumbotron component
 import ContactForm from './components/ContactForm';
 import Skills from './components/Skills';
+import Certifications from './components/Certifications';
 
 export default function Page() {
   const [fadeIn, setFadeIn] = useState(false);
@@ -52,9 +53,10 @@ export default function Page() {
 
   return (
     <main className="p-4" style={{ backgroundColor: '#0D1117', color: '#C9D1D9' }}>
-       <Jumbotron/>{/* Add the Jumbotron component here */}
+      <Jumbotron/>{/* Add the Jumbotron component here */}
       <ProfileSection/> {/* Profile section*/}
       <Skills/>
+      <Certifications/>
       <ContactForm/> {/* Contact Form*/}
     </main>
   );

@@ -1,7 +1,6 @@
-/* Import Bulma and Google Font */
+/* Import Bulma */
 @import 'bulma/css/bulma.css';
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -44,7 +43,7 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Arial', sans-serif;
   background-color: #333333;
   color: #ffffff;
 }
@@ -121,13 +120,23 @@ body {
   color: #fff;
 }
 
+/* Project card styles */
 .project-card {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
+  background-color: #161B22;
+  border: 1px solid #30363D;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .project-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-10px);
+}
+
+.project-image {
+  object-fit: cover;
 }
 
 .section {
@@ -145,44 +154,7 @@ body {
   }
 }
 
-/* styles.css */
-.hover-card {
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.hover-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-
-.fade-in {
-  animation: fadeIn 2s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.project-image {
-  object-fit: cover;
-}
-
-.card {
-  background-color: #161B22;
-  border: 1px solid #30363D;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-}
-
+/* Ensure card text is white */
 .card .title, .card .subtitle, .card .content, .card a {
   color: white;
 }
@@ -196,7 +168,6 @@ body {
   color: white !important;
 }
 
-/* Image styles */
 .jumbotron-image {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   border: 4px solid white;
@@ -208,7 +179,6 @@ body {
   max-height: 256px;
 }
 
-/* Text and icon sizes */
 .text-content {
   flex-grow: 1;
   max-width: 40%;
@@ -227,7 +197,6 @@ body {
   margin-right: 1rem;
 }
 
-/* Tech info section */
 .tech-info {
   display: flex;
   flex-direction: column;
@@ -273,4 +242,37 @@ body {
 
 .icon-white:hover {
   transform: scale(1.2);
+}
+
+/* Hover effect for profile section cards */
+.hover-card {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  background-color: #161B22;
+  border: 1px solid #30363D;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.hover-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transform: translateY(-10px);
+}
+.custom-background {
+  background-color: #161B22;
+  border: 1px solid #30363D;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-card-header {
+  background-color: #0D1117;
+}
+
+.custom-input {
+  background-color: #0D1117;
+  color: #C9D1D9;
+}
+
+.custom-input::placeholder {
+  color: #8B949E;
 }

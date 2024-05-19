@@ -20,8 +20,8 @@ function ArrowIcon() {
 
 export default function Footer() {
   return (
-    <footer className="footer mt-64 p-4 has-text-centered">
-      <div className="content has-text-centered">
+    <footer className="mb-1 footer p-2 has-text-centered">
+      <div className="my-px py-4 content has-text-centered">
         <ul className="columns is-centered is-multiline">
           <li className="column is-narrow">
             <a
