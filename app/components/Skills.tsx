@@ -1,18 +1,18 @@
 import React from 'react';
-import { FaReact, FaJs, FaGitAlt } from 'react-icons/fa';
-import { SiNextdotjs, SiTailwindcss, SiTypescript, SiFigma, SiVercel, SiNetlify, SiPrisma } from 'react-icons/si';
+import { FaReact, FaJs, FaGitAlt, FaPython } from 'react-icons/fa';
+import { SiNextdotjs, SiTailwindcss, SiTypescript, SiFigma, SiVercel, SiNetlify, SiPrisma, SiR, SiPython, SiTensorflow } from 'react-icons/si';
 
 const skills = [
+  { name: 'Python', icon: <FaPython className="icon has-text-info" /> },
+  { name: 'R', icon: <SiR className="icon has-text-grey-light" /> },
   { name: 'React', icon: <FaReact className="icon has-text-info" /> },
-  { name: 'Next.js', icon: <SiNextdotjs className="icon has-text-grey-light" /> },
-  { name: 'Tailwind CSS', icon: <SiTailwindcss className="icon has-text-info" /> },
   { name: 'JavaScript', icon: <FaJs className="icon has-text-warning" /> },
   { name: 'TypeScript', icon: <SiTypescript className="icon has-text-info" /> },
   { name: 'Git', icon: <FaGitAlt className="icon has-text-danger" /> },
-  { name: 'Figma', icon: <SiFigma className="icon has-text-pink" /> },
-  { name: 'Vercel', icon: <SiVercel className="icon has-text-grey-light" /> },
-  { name: 'Netlify', icon: <SiNetlify className="icon has-text-success" /> },
-  { name: 'Prisma', icon: <SiPrisma className="icon has-text-info" /> },
+  { name: 'TailWind CSS', icon: <SiTailwindcss className="icon has-text-info" /> },
+  { name: 'Vercel', icon: <SiVercel className="icon has-text-black" /> },
+  { name: 'Next.js', icon: <SiNextdotjs className="icon has-text-success" /> },
+  { name: 'TensorFlow', icon: <SiTensorflow className="icon has-text-white" /> },
 ];
 
 const Skills = () => {

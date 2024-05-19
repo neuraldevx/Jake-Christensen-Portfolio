@@ -52,12 +52,18 @@ export default function Page() {
   };
 
   return (
-    <main className="p-4" style={{ backgroundColor: '#0D1117', color: '#C9D1D9' }}>
-      <Jumbotron/>{/* Add the Jumbotron component here */}
-      <ProfileSection/> {/* Profile section*/}
-      <Skills/>
-      <Certifications/>
-      <ContactForm/> {/* Contact Form*/}
+      <main className="p-4" style={{ backgroundColor: '#0D1117', color: '#C9D1D9' }}>
+      <Jumbotron />{/* Add the Jumbotron component here */}
+      <ProfileSection /> {/* Profile section*/}
+      <Skills />
+      <div className="columns is-variable is-8 is-multiline">
+        <div className="column is-half">
+          <Certifications />
+        </div>
+        <div className="column is-half">
+          <ContactForm />
+        </div>
+      </div>
     </main>
   );
 }

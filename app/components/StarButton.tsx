@@ -44,8 +44,7 @@ const StarButton: React.FC = () => {
       onHoverStart={() => setIsHover(true)}
       onHoverEnd={() => setIsHover(false)}
       onClick={handleStarClick}
-      className="button is-dark"
-      style={{ display: 'flex', alignItems: 'center', border: 'none', background: 'none' }}
+      className="button is-focused is-white-glow"
     >
       <motion.div
         className="icon"
@@ -54,7 +53,7 @@ const StarButton: React.FC = () => {
       >
         <Star color={isStarred ? 'yellow' : 'white'} size={24} />
       </motion.div>
-      <span style={{ marginLeft: '8px', color: 'white' }}>{isStarred ? 'Starred' : 'Star'}</span>
+      <span style={{ marginLeft: '8px' }}>{isStarred ? 'Starred' : 'Star'}</span>
     </motion.button>
   );
 };

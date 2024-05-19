@@ -32,9 +32,9 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section className="container mt-6">
-      <div className="columns is-centered">
-        <div className="column is-half">
+    <section className="container mt-2">
+      <div className="columns">
+        <div className="column">
           <div className="card hover-card custom-background">
             <header className="card-header custom-card-header">
               <p className="card-header-title has-text-white">Contact Me</p>

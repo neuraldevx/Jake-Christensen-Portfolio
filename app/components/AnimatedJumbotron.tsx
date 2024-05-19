@@ -5,11 +5,11 @@ import { BsTwitterX } from 'react-icons/bs';
 import { MailIcon } from '@heroicons/react/outline';
 import { Linkedin, GitHub } from 'react-feather';
 import { SiNextdotjs, SiVercel, SiTailwindcss } from 'react-icons/si'; // Import Tailwind CSS icon
-import mainImage from '../public/assets/mainPic.png';
+import mainImage from 'public/assets/mainPic.png';
 
 const AnimatedJumbotron = () => {
   return (
-    <section className="hero is-dark is-bold my-40" style={{ backgroundImage: 'url(assets/dev3pfp.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+    <section className="hero is-dark is-bold my-40" style={{ backgroundImage: 'url(/assets/banner.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
       <div className="hero-body" style={{ background: 'rgba(0, 0, 0, 0.7)' }}>
         <div className="container is-flex is-align-items-center">
           <div className="text-content">

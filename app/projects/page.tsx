@@ -2,9 +2,9 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import Image, { StaticImageData } from 'next/image';
-import projectOneImage from 'app/public/assets/proj1.jpg';
-import projectTwoImage from 'app/public/assets/proj2.jpg';
-import defaultImage from 'app/public/assets/dev3pfp.png'; // Add a default image
+import projectOneImage from 'public/assets/proj1.jpg';
+import projectTwoImage from 'public/assets/proj2.jpg';
+import defaultImage from 'public/assets/dev3pfp.png'; // Add a default image
 
 interface Repository {
   name: string;

@@ -1,4 +1,3 @@
-// components/nav.tsx
 import Link from 'next/link';
 import { CiCoffeeCup } from "react-icons/ci";
 import StarButton from './StarButton';
@@ -19,29 +18,37 @@ function MountainIcon() {
   );
 }
 
-const navItems = {
+interface NavItem {
+  name: string;
+  icon?: JSX.Element;
+  className: string;
+}
+
+const navItems: Record<string, NavItem> = {
   '/': {
     name: 'Home',
-    icon: <MountainIcon />
+    className: 'navbar-item button is-focused is-white-glow'
   },
   '/projects': {
-    name: 'Projects'
+    name: 'Projects',
+    className: 'navbar-item button is-focused is-white-glow'
   },
   'https://buymeacoffee.com/jakechristensen': {
     name: 'Buy Me a Coffee',
-    icon: <div className='py-4 flex'><CiCoffeeCup /></div>
+    icon: <div className='py-4 flex'><CiCoffeeCup /></div>,
+    className: 'navbar-item button is-focused is-white-glow'
   },
 };
 
 export function Navbar() {
   return (
-    <nav className="navbar is-dark">
+    <nav className="navbar is-dark is-spaced flex-auto text-wrap">
       <div className="container">
         <div className="navbar-brand">
           <Link href="/" className="navbar-item">
-            {navItems['/'].icon}
+            <MountainIcon />
           </Link>
-          <div className="navbar-burger" data-target="navbarMenu">
+          <div className="navbar-burger burger" data-target="navbarMenu">
             <span></span>
             <span></span>
             <span></span>
@@ -49,9 +56,10 @@ export function Navbar() {
         </div>
         <div id="navbarMenu" className="navbar-menu">
           <div className="navbar-start">
-            {Object.entries(navItems).map(([path, { name }]) => (
-              <Link href={path} key={path} className="navbar-item">
-                {name}
+            {Object.entries(navItems).map(([path, { name, icon, className }]) => (
+              <Link href={path} key={path} className={className}>
+                {icon && <span className="icon">{icon}</span>}
+                <span>{name}</span>
               </Link>
             ))}
           </div>
