@@ -1,6 +1,8 @@
 /* Import Bulma */
 @import 'bulma/css/bulma.css';
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -110,12 +112,14 @@ body {
 .navbar-item {
   color: #fff;
   margin-right: 10px; /* Add margin to space out the items */
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+  border: 1px solid transparent; /* Initial transparent border */
 }
 
 .navbar-item:hover {
-  background-color: #333;
   color: #fff;
 }
+
 
 /* Project card styles */
 .project-card {
@@ -301,4 +305,21 @@ body {
 .profile-section .card:hover {
   box-shadow: 0 10px 20px rgba(255, 255, 255, 0.5);
   transform: translateY(-10px);
+}
+
+.no-border-hover {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.no-border-hover:hover {
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+}
+
+
+/* Apply the Raleway font to body and headings */
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Raleway', sans-serif;
 }

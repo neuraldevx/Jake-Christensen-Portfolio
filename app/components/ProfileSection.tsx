@@ -1,6 +1,6 @@
 import React from 'react';
 import { CiUser } from 'react-icons/ci';
-import { FaGraduationCap, FaBriefcase } from 'react-icons/fa';
+import { FaGraduationCap, FaBriefcase, FaToolbox, FaHandshake, FaBrain } from 'react-icons/fa';
 
 const ProfileSection = () => {
   const sections = [
@@ -24,9 +24,9 @@ const ProfileSection = () => {
       title: 'Experience',
       content: [
         { header: 'Software Developer Intern', subtext: ['Publix, May 2023 – August 2023'] },
-        { header: 'Reasearch Assitant', subtext: ['University of Wisconsin-Madison IT Help Desk, October 2022 – July 2023'] },
+        { header: 'Reasearch Assistant', subtext: ['University of Wisconsin-Madison IT Help Desk, October 2022 – May 2023'] },
       ],
-      icon: <FaBriefcase className="icon is-medium" />,
+      icon: <FaHandshake className="icon is-medium" />,
     },
     {
       title: 'Expertise & Roles',
@@ -34,7 +34,7 @@ const ProfileSection = () => {
         { header: 'Expertise', subtext: ['Artificial Intelligence', 'Machine Learning', 'Data Engineering', 'Software Development'] },
         { header: 'Looking For', subtext: ['AI/ML Roles', 'Data Engineering Positions', 'Software Development Roles'] },
       ],
-      icon: <FaBriefcase className="icon is-medium" />,
+      icon: <FaBrain className="icon is-medium" />,
     },
   ];
 

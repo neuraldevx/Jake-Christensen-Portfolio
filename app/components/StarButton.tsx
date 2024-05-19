@@ -1,4 +1,3 @@
-// components/StarButton.tsx
 "use client";
 import { useState } from 'react';
 import { motion, Variants, Transition } from 'framer-motion';
@@ -44,7 +43,7 @@ const StarButton: React.FC = () => {
       onHoverStart={() => setIsHover(true)}
       onHoverEnd={() => setIsHover(false)}
       onClick={handleStarClick}
-      className="button is-focused is-white-glow"
+      className="button is-white is-outlined is-white-glow" // Bulma button classes
     >
       <motion.div
         className="icon"

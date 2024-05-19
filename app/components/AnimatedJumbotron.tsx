@@ -13,8 +13,8 @@ const AnimatedJumbotron = () => {
       <div className="hero-body" style={{ background: 'rgba(0, 0, 0, 0.7)' }}>
         <div className="container is-flex is-align-items-center">
           <div className="text-content">
-            <h1 className="title has-text-white is-size-2">Jacob Christensen</h1>
-            <p className="subtitle has-text-grey-light is-size-5">Passionate Developer | AI & Data Engineer | UW-Madison '24</p>
+          <h1 className="text-white text-[60px]">Jacob Christensen</h1>
+            <p className="subtitle has-text-grey-light is-size-12">Passionate Developer | AI & Data Engineer | UW-Madison '24</p>
             <div className="buttons">
               <a href="https://twitter.com/realjakechris" aria-label="Twitter" className="icon is-large icon-white">
                 <BsTwitterX size={24} />

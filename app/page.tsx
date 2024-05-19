@@ -1,13 +1,12 @@
 // app/page.tsx
 'use client';
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { MailIcon } from '@heroicons/react/outline';
 import { Linkedin, GitHub } from 'react-feather';
 import { BsTwitterX } from 'react-icons/bs';
-import Image from 'next/image';
 import { FaGraduationCap } from 'react-icons/fa';
 import { CiUser } from 'react-icons/ci';
+import Image from 'next/image';
 import mainImage from './public/assets/mainPic.png';
 import 'bulma/css/bulma.min.css';
 import 'app/styles/global.css'; // Import custom styles
@@ -52,15 +51,15 @@ export default function Page() {
   };
 
   return (
-      <main className="p-4" style={{ backgroundColor: '#0D1117', color: '#C9D1D9' }}>
-      <Jumbotron />{/* Add the Jumbotron component here */}
-      <ProfileSection /> {/* Profile section*/}
+    <main className="p-4" style={{ backgroundColor: '#0D1117', color: '#C9D1D9' }}>
+      <Jumbotron />
+      <ProfileSection />
       <Skills />
       <div className="columns is-variable is-8 is-multiline">
-        <div className="column is-half">
+        <div className="column is-full-mobile is-half-tablet is-half-desktop">
           <Certifications />
         </div>
-        <div className="column is-half">
+        <div className="column is-full-mobile is-half-tablet is-half-desktop">
           <ContactForm />
         </div>
       </div>
