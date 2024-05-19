@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Personal Portfolio
 
 ## Table of Contents
