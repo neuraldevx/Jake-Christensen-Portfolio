@@ -39,7 +39,7 @@ const ProfileSection = () => {
   ];
 
   return (
-    <section className="container mt-6 profile-section">
+    <section className="container mt-6 profile-section ">
       <div className="columns is-multiline is-variable is-8">
         {sections.map((section, idx) => (
           <div key={idx} className="column is-one-quarter-desktop is-half-tablet">

@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className="d-flex flex-column min-vh-100">
+      <body className="d-flex flex-column min-vh-100 ">
         <ScrollProgressBar />
         <Navbar />
         <main className="flex-fill">

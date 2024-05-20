@@ -10,14 +10,6 @@ function MoonIcon() {
   );
 }
 
-function MountainIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-    </svg>
-  );
-}
-
 interface NavItem {
   name: string;
   icon?: JSX.Element;
@@ -27,26 +19,26 @@ interface NavItem {
 const navItems: Record<string, NavItem> = {
   '/': {
     name: 'Home',
-    className: 'navbar-item button is-focused is-white-glow'
+    className: 'navbar-item is-white-glow'
   },
   '/projects': {
     name: 'Projects',
-    className: 'navbar-item button is-focused is-white-glow'
+    className: 'navbar-item is-white-glow'
   },
   'https://buymeacoffee.com/jakechristensen': {
     name: 'Buy Me a Coffee',
     icon: <div className='py-4 flex'><CiCoffeeCup /></div>,
-    className: 'navbar-item button is-focused is-white-glow'
+    className: 'navbar-item is-white-glow'
   },
 };
 
 export function Navbar() {
   return (
-    <nav className="navbar is-dark is-spaced flex-auto text-wrap">
+    <nav className="navbar bg-gray-900 is-spaced">
       <div className="container">
         <div className="navbar-brand">
           <Link href="/" className="navbar-item">
-            <MountainIcon />
+            <MoonIcon />
           </Link>
           <div className="navbar-burger burger" data-target="navbarMenu">
             <span></span>

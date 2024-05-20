@@ -1,5 +1,8 @@
 # Personal Portfolio
 
+<img width="1440" alt="image" src="https://github.com/neuraldevx/Jake-Christensen-Portfolio/assets/83853752/f6aa05fb-a3c5-4dc9-af30-c1806ecd3669">
+
+
 ## Table of Contents
 
 - [About](#about)
@@ -13,7 +16,7 @@
 
 ## About
 
-This is a personal portfolio website for Jacob Christensen, showcasing his projects, skills, and experience. The website is built using Next.js and styled with Tailwind CSS and Bulma. It also features dynamic content fetched from GitHub and includes a blog section for sharing articles and insights.
+This is a personal portfolio website, showcasing projects, skills, and experience. The website is built using **Next.js** and styled with **Tailwind CSS** and **Bulma**. It also features dynamic content fetched from GitHub and includes a blog section for sharing articles and insights.
 
 ## Features
 
