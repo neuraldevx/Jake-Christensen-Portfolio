@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Personal Portfolio
 
 ## Table of Contents
@@ -35,4 +34,3 @@ This is a personal portfolio website for Jacob Christensen, showcasing his proje
 - [Vercel](https://vercel.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [GitHub API](https://docs.github.com/en/rest)
-=======
