@@ -10,7 +10,7 @@ const skills = [
   { name: 'TypeScript', icon: <SiTypescript className="icon has-text-info" /> },
   { name: 'Git', icon: <FaGitAlt className="icon has-text-danger" /> },
   { name: 'TailWind CSS', icon: <SiTailwindcss className="icon has-text-info" /> },
-  { name: 'Vercel', icon: <SiVercel className="icon has-text-black" /> },
+  { name: 'Vercel', icon: <SiVercel className="" /> },
   { name: 'Next.js', icon: <SiNextdotjs className="icon has-text-success" /> },
   { name: 'TensorFlow', icon: <SiTensorflow className="icon has-text-white" /> },
 ];
@@ -24,7 +24,7 @@ const Skills = () => {
         <div className="columns is-multiline is-centered">
           {skills.map((skill) => (
             <div key={skill.name} className="column is-2 has-text-centered">
-              <div className="box transition duration-300 transform hover:bg-gray-700 hover:scale-105" style={{ backgroundColor: '#1E1E1E' }}>
+              <div className="box transition duration-300 transform hover:bg-gray-700 hover:scale-105" style={{ backgroundColor: '#161B22' }}>
                 <div className="is-size-1">{skill.icon}</div>
                 <p className="has-text-white mt-2">{skill.name}</p>
               </div>

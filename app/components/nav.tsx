@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { CiCoffeeCup } from "react-icons/ci";
-import StarButton from './StarButton';
+import StarButton from './starButton';
 
 function MoonIcon() {
   return (
@@ -34,7 +34,7 @@ const navItems: Record<string, NavItem> = {
 
 export function Navbar() {
   return (
-    <nav className="navbar bg-gray-900 is-spaced">
+    <nav className="navbar has-background-black-bis is-spaced">
       <div className="container">
         <div className="navbar-brand">
           <Link href="/" className="navbar-item">

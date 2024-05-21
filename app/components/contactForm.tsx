@@ -32,7 +32,7 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section className="container mt-2">
+    <section className="container">
       <div className="columns">
         <div className="column">
           <div className="card hover-card custom-background">

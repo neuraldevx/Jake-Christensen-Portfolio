@@ -38,6 +38,7 @@
     "react-feather": "^2.0.10",
     "react-icons": "^5.2.1",
     "react-toggle": "^4.1.3",
+    "react-typed": "^2.0.12",
     "sugar-high": "^0.6.1",
     "tailwind-merge": "^2.3.0",
     "three": "^0.164.1",

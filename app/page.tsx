@@ -1,4 +1,3 @@
-// app/page.tsx
 'use client';
 import React, { useEffect, useState } from 'react';
 import { MailIcon } from '@heroicons/react/outline';
@@ -6,15 +5,14 @@ import { Linkedin, GitHub } from 'react-feather';
 import { BsTwitterX } from 'react-icons/bs';
 import { FaGraduationCap } from 'react-icons/fa';
 import { CiUser } from 'react-icons/ci';
-import Image from 'next/image';
-import mainImage from './public/assets/mainPic.png';
 import 'bulma/css/bulma.min.css';
 import 'app/styles/global.css'; // Import custom styles
-import ProfileSection from './components/ProfileSection';
-import Jumbotron from './components/AnimatedJumbotron'; // Import the Jumbotron component
-import ContactForm from './components/ContactForm';
-import Skills from './components/Skills';
-import Certifications from './components/Certifications';
+import ProfileSection from './components/profileSection';
+import Jumbotron from './components/animatedJumbotron'; // Import the Jumbotron component
+import ContactForm from './components/contactForm';
+import Skills from './components/skills';
+import Certifications from './components/certifications';
+import IntroAnimated from './components/introAnimated';
 
 export default function Page() {
   const [fadeIn, setFadeIn] = useState(false);
@@ -51,15 +49,16 @@ export default function Page() {
   };
 
   return (
-    <main className="p-4" style={{ backgroundColor: '#0D1117', color: '#C9D1D9' }}>
-      <Jumbotron />
+    <main className="p-4">
+      <IntroAnimated />
+      {/* <Jumbotron /> */}
       <ProfileSection />
       <Skills />
       <div className="columns is-variable is-8 is-multiline">
         <div className="column is-full-mobile is-half-tablet is-half-desktop">
           <Certifications />
         </div>
-        <div className="column is-full-mobile is-half-tablet is-half-desktop">
+        <div className="column is-full-mobile is-half-tablet is-half-desktop contact-form-column">
           <ContactForm />
         </div>
       </div>

@@ -43,7 +43,7 @@ export default function Projects() {
   };
 
   return (
-    <main className="section" style={{ backgroundColor: '#0D1117', color: '#C9D1D9', fontFamily: 'Arial, sans-serif' }}>
+    <main className="section" style={{fontFamily: 'Arial, sans-serif' }}>
       <div className="container">
         <h1 className="title has-text-centered" style={{ color: '#FFFFFF', marginBottom: '2rem' }}>Projects</h1>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>

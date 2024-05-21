@@ -13,96 +13,23 @@
   color: #fefefe;
 }
 
-:root {
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
-  --sh-sign: #8996a3;
-  --sh-string: #007f7a;
-  --sh-keyword: #e02518;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
-  --sh-entity: #e25a1c;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --sh-class: #4c97f8;
-    --sh-identifier: white;
-    --sh-keyword: #f47067;
-    --sh-string: #0fa295;
-  }
-  html {
-    color-scheme: dark;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #C9D1D9;
+  background-color: #14161a;
 }
 
 html {
   min-width: 360px;
 }
 
-body {
-  font-family: 'Arial', sans-serif;
-
-  color: #C9D1D9;
-}
-
 .hero {
-  background-color: #1c1c1e;
+  background-color: #14161a;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.fade-in {
-  animation: fadeIn 2.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.box-shadow-hover {
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.box-shadow-hover:hover {
-  box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
-  transform: translateY(-5px);
-}
-
-.card-header-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon {
-  margin-right: 8px;
-}
-
-.image.is-128x128 {
-  max-width: 128px;
-  max-height: 128px;
-}
-
-.buttons.is-centered.is-left-desktop {
-  justify-content: center;
-  justify-content: flex-start;
-}
-
-.content {
-  text-align: left;
-}
-
 .navbar {
-  background-color: #161B22;
+  background-color: #14161a;
 }
 
 .navbar-burger {
@@ -120,24 +47,19 @@ body {
   color: #fff;
 }
 
-
 /* Project card styles */
-.project-card {
+.project-card, .hover-card {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  background-color: #161B22;
+  background-color: #14161a;
   border: 1px solid #30363D;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
-.project-card:hover {
+.project-card:hover, .hover-card:hover {
   box-shadow: 0 10px 20px rgba(255, 255, 255, 0.5);
   transform: translateY(-10px);
-}
-
-.project-image {
-  object-fit: cover;
 }
 
 .section {
@@ -176,25 +98,27 @@ body {
 }
 
 .image.is-256x256 {
-  max-width: 256px;
-  max-height: 256px;
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .text-content {
   flex-grow: 1;
-  max-width: 40%;
+  max-width: 45%;
 }
 
 .text-content .title {
-  font-size: 2.5rem;
+  font-size: 2rem;
+  color: #C9D1D9;
 }
 
 .text-content .subtitle {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  color: #8B949E;
 }
 
 .buttons .icon {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-right: 1rem;
 }
 
@@ -203,7 +127,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-left: 2rem;
   text-align: center;
 }
 
@@ -214,8 +137,9 @@ body {
 }
 
 .tech-info .icon {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 0.5rem;
+  color: #C9D1D9;
 }
 
 .glow {
@@ -231,57 +155,67 @@ body {
   }
 }
 
-.jumbotron-image {
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-  border: 3px solid white;
+/* Custom Hero Section Styles */
+.custom-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* Reduced height */
+  background-color: #343A40; /* Secondary background color */
+  border-radius: 25px; /* Rounded corners */
+  margin: 1rem auto; /* Center the hero section */
+  max-width: 1000px; /* Reduced max width to fit content better */
+  color: #CED4DA; /* Match the text color */
 }
 
-.icon-white {
-  color: white;
-  transition: transform 0.3s;
+.custom-hero-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
-.icon-white:hover {
-  transform: scale(1.2);
+.custom-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 25px; /* Rounded corners for the container */
+  padding: 1rem;
+  width: 90%; /* Reduced width */
 }
 
-/* Hover effect for profile section cards */
-.hover-card {
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  background-color: #161B22;
-  border: 1px solid #30363D;
-  border-radius: 12px;
-  overflow: hidden;
+/* Ensure text color matches */
+.custom-hero .title,
+.custom-hero .subtitle,
+.custom-hero .has-text-white {
+  color: #CED4DA; /* Match the text color */
 }
 
-.hover-card:hover {
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.5);
-  transform: translateY(-10px);
+/* Hover effects for intro card elements */
+.custom-hero .buttons a {
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.custom-background {
-  background-color: #161B22;
-  border: 1px solid #30363D;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+.custom-hero .buttons a:hover {
+  transform: scale(1.1);
+  color: #F8F9FA; /* Light background color */
 }
 
-.custom-card-header {
-  background-color: #0D1117;
+.custom-hero .tech-info .icon {
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.custom-input {
-  background-color: #0D1117;
-  color: #C9D1D9;
-}
-
-.custom-input::placeholder {
-  color: #8B949E;
+.custom-hero .tech-info .icon:hover {
+  transform: scale(1.1);
+  color: #F8F9FA; /* Light background color */
 }
 
 /* Profile cards size and layout */
 .profile-section .card {
   height: 100%;
+  background-color: #14161a;
+  border: 1px solid #30363D;
 }
 
 .profile-section .column {
@@ -296,6 +230,7 @@ body {
 }
 
 .profile-section .card {
+  display: flex;
   width: 100%;
   max-width: 300px; /* Adjust the maximum width as needed */
   margin-bottom: 1rem;
@@ -307,19 +242,120 @@ body {
   transform: translateY(-10px);
 }
 
-.no-border-hover {
-  border: none !important;
-  box-shadow: none !important;
+.card-header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.no-border-hover:hover {
-  box-shadow: none !important;
-  outline: none !important;
-  border: none !important;
+.header-icon {
+  margin-right: 15px;
 }
 
+.header-text {
+  display: inline-block;
+  vertical-align: middle;
+}
 
-/* Apply the Raleway font to body and headings */
-body, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Raleway', sans-serif;
+/* Skills Section Styles */
+.skills-section .box {
+  background-color: #14161a; /* Match the background color */
+  border: 1px solid #30363D; /* Add border similar to other cards */
+  border-radius: 12px; /* Rounded corners */
+  transition: box-shadow 0.3s ease, transform 0.1s ease; /* Add transition for hover effect */
+}
+
+.skills-section .box:hover {
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.5); /* Box shadow on hover */
+  transform: translateY(-10px); /* Lift effect on hover */
+}
+
+/* Footer Styles */
+.footer {
+  background-color: #14161a; /* Match the background color */
+  color: #FFFFFF; /* White text color */
+  padding: 2rem 0; /* Increased padding for better spacing */
+  text-align: center; /* Center text alignment */
+  display: flex;
+  justify-content: center; /* Center footer content horizontally */
+  align-items: center; /* Center footer content vertically */
+  flex-direction: column; /* Stack elements vertically */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  gap: 0.5rem; /* Space between buttons */
+}
+
+.footer-button {
+  color: #FFFFFF; /* White text color for buttons */
+  background: none; /* No background color */
+  /* border: 1px solid #FFFFFF; White border */
+  display: flex;
+  align-items: center; /* Center align the content */
+  padding: 0.25rem 0.5rem; /* Smaller padding for the button */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+  text-decoration: none; /* Remove underline from links */
+  font-size: 0.8rem; /* Smaller text size */
+}
+
+.footer-button:hover {
+  background-color: #495057; /* Darker background on hover */
+  color: #F8F9FA; /* Light text color on hover */
+  transform: translateY(-3px); /* Slight lift on hover */
+}
+
+.footer-button svg {
+  margin-right: 8px; /* Space between icon and text */
+  fill: currentColor; /* Inherit color */
+}
+
+certifications spacing
+.card-header-title .icon {
+  margin-right: 0.5rem; /* Add some space to the right of the icon */
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background-color: #2e2e3e;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #5a5a7a;
+  box-shadow: none;
+}
+
+.contact-form button {
+  background-color: #5a5a7a;
+  border: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #444;
+}
+
+.columns {
+  margin-top: 2rem;
+}
+
+/* Add margin-top to the ContactForm column */
+.contact-form-column {
+  margin-top: 10rem; 
+}
+
+.card-header-title .icon {
+  margin-right: 0.5rem; /* Add some space to the right of the icon */
 }

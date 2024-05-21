@@ -1,4 +1,3 @@
-// app/components/footer.tsx
 import React from 'react';
 
 function ArrowIcon() {
@@ -20,43 +19,26 @@ function ArrowIcon() {
 
 export default function Footer() {
   return (
-    <footer className="mb-1 footer p-2 has-text-centered">
-      <div className="my-px py-4 content has-text-centered">
-        <ul className="columns is-centered is-multiline">
-          <li className="column is-narrow">
-            <a
-              className="button is-light is-small"
-              rel="noopener noreferrer"
-              target="_blank"
-              href="/rss"
-            >
-              <ArrowIcon />
-              <span className="ml-2">rss</span>
-            </a>
-          </li>
-          <li className="column is-narrow">
-            <a
-              className="button is-light is-small"
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://github.com/neuraldevx"
-            >
-              <ArrowIcon />
-              <span className="ml-2">github</span>
-            </a>
-          </li>
-          <li className="column is-narrow">
-            <a
-              className="button is-light is-small"
-              rel="noopener noreferrer"
-              target="_blank"
-              href="https://twitter.com/realjakechris"
-            >
-              <ArrowIcon />
-              <span className="ml-2">twitter</span>
-            </a>
-          </li>
-        </ul>
+    <footer className="footer">
+      <div className="footer-content">
+        <a
+          className="footer-button"
+          rel="noopener noreferrer"
+          target="_blank"
+          href="https://github.com/neuraldevx"
+        >
+          <ArrowIcon />
+          <span className="ml-2">GitHub</span>
+        </a>
+        <a
+          className="footer-button"
+          rel="noopener noreferrer"
+          target="_blank"
+          href="https://twitter.com/realjakechris"
+        >
+          <ArrowIcon />
+          <span className="ml-2">Twitter</span>
+        </a>
       </div>
     </footer>
   );
