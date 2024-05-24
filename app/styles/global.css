@@ -34,11 +34,6 @@ html {
 
 .navbar-burger {
   color: #fff;
-  display: none; /* Hide by default */
-}
-
-.navbar-burger.is-active {
-  display: block; /* Show when active */
 }
 
 .navbar-item {
@@ -69,6 +64,24 @@ html {
 
 .section {
   padding: 1rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .custom-container {
+    flex-direction: column-reverse; /* Stack elements vertically */
+    align-items: center;
+    text-align: center; /* Center align text for mobile */
+  }
+
+  .text-content, .tech-info {
+    max-width: 100%; /* Full width for mobile */
+    margin-bottom: 1rem;
+  }
+
+  .image.is-256x256 {
+    max-width: 150px; /* Adjust image size for mobile */
+    max-height: 150px;
+  }
 }
 
 /* Ensure card text is white */
@@ -154,8 +167,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto; /* Adjust height for content */
-  padding: 2rem 1rem; /* Add padding */
+  height: 60vh; /* Reduced height */
   background-color: #343A40; /* Secondary background color */
   border-radius: 25px; /* Rounded corners */
   margin: 1rem auto; /* Center the hero section */
@@ -306,7 +318,7 @@ html {
   fill: currentColor; /* Inherit color */
 }
 
-.certifications-spacing .card-header-title .icon {
+.certifications-spacing {
   margin-right: 0.5rem; /* Add some space to the right of the icon */
 }
 
@@ -347,65 +359,9 @@ html {
 
 /* Add margin-top to the ContactForm column */
 .contact-form-column {
-  margin-top: 10rem; 
+  margin-top: 10rem;
 }
 
 .card-header-title .icon {
   margin-right: 0.5rem; /* Add some space to the right of the icon */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .custom-container {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1rem;
-  }
-
-  .jumbotron-image {
-    max-width: 150px;
-    max-height: 150px;
-    margin-bottom: 1rem; /* Add margin for spacing */
-  }
-
-  .text-content {
-    max-width: 100%;
-    margin-bottom: 1rem;
-  }
-
-  .custom-hero .title {
-    font-size: 1.5rem; /* Adjust the title font size */
-  }
-
-  .custom-hero .subtitle {
-    font-size: 1rem; /* Adjust the subtitle font size */
-  }
-
-  .buttons .icon {
-    font-size: 1.2rem;
-    margin-right: 0.5rem;
-  }
-
-  .navbar-burger {
-    display: block; /* Ensure burger menu is displayed */
-  }
-
-  .navbar-menu {
-    display: none; /* Hide menu initially */
-  }
-
-  .navbar-menu.is-active {
-    display: block; /* Show menu when active */
-  }
-
-  .navbar-end {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-  }
-
-  .navbar-item {
-    padding: 1rem; /* Add padding for better touch targets */
-  }
 }

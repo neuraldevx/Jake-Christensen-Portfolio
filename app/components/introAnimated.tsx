@@ -30,7 +30,7 @@ const childVariants = {
 
 const Intro = () => {
   return (
-    <section className="hero is-bold my-40 custom-hero">
+    <section className="hero is-bold my-40 custom-hero" style={{ backgroundColor: '#161B22', border: '1px solid #30363D' }}>
       <div className="hero-body custom-hero-body">
         <motion.div
           className="container custom-container"
