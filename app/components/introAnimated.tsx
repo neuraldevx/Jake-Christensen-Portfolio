@@ -40,7 +40,7 @@ const Intro = () => {
         >
           <div className="text-content">
             <h1 className="title custom-title">Jacob Christensen</h1>
-            <p className="subtitle">Passionate Developer | AI & Data Engineer | UW-Madison '24</p>
+            <p className="subtitle custom-subtitle">Passionate Developer | AI & Data Engineer | UW-Madison '24</p>
             <div className="buttons">
               <a href="https://twitter.com/realjakechris" aria-label="Twitter" className="icon is-large icon-white hover">
                 <BsTwitter size={24} />

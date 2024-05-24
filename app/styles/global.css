@@ -68,7 +68,7 @@ html {
 
 @media (max-width: 768px) {
   .custom-container {
-    flex-direction: column-reverse; /* Stack elements vertically */
+    flex-direction: column; /* Stack elements vertically */
     align-items: center;
     text-align: center; /* Center align text for mobile */
   }
@@ -81,6 +81,32 @@ html {
   .image.is-256x256 {
     max-width: 150px; /* Adjust image size for mobile */
     max-height: 150px;
+  }
+
+  .custom-title {
+    font-size: 1.5rem; /* Adjust title size for mobile */
+  }
+
+  .custom-subtitle {
+    font-size: 1rem; /* Adjust subtitle size for mobile */
+  }
+
+  .buttons .icon {
+    font-size: 1.2rem; /* Adjust icon size for mobile */
+    margin-right: 0.5rem;
+  }
+
+  .tech-info .icon {
+    font-size: 1.2rem; /* Adjust icon size for mobile */
+    margin: 0.3rem;
+  }
+
+  .hero-body {
+    padding: 1rem; /* Adjust padding for mobile */
+  }
+
+  .hero {
+    margin: 1rem 0; /* Adjust margin for mobile */
   }
 }
 
