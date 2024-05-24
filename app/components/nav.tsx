@@ -1,4 +1,6 @@
+"use client";
 import Link from 'next/link';
+import { useState } from 'react';
 import { CiCoffeeCup } from "react-icons/ci";
 import StarButton from './starButton';
 
@@ -33,6 +35,12 @@ const navItems: Record<string, NavItem> = {
 };
 
 export function Navbar() {
+  const [isActive, setIsActive] = useState(false);
+
+  const toggleBurgerMenu = () => {
+    setIsActive(!isActive);
+  };
+
   return (
     <nav className="navbar has-background-black-bis is-spaced">
       <div className="container">
@@ -40,13 +48,13 @@ export function Navbar() {
           <Link href="/" className="navbar-item">
             <MoonIcon />
           </Link>
-          <div className="navbar-burger burger" data-target="navbarMenu">
+          <div className={`navbar-burger burger ${isActive ? 'is-active' : ''}`} data-target="navbarMenu" onClick={toggleBurgerMenu}>
             <span></span>
             <span></span>
             <span></span>
           </div>
         </div>
-        <div id="navbarMenu" className="navbar-menu">
+        <div id="navbarMenu" className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
           <div className="navbar-start">
             {Object.entries(navItems).map(([path, { name, icon, className }]) => (
               <Link href={path} key={path} className={className}>
