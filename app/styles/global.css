@@ -154,7 +154,8 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh; /* Reduced height */
+  height: auto; /* Adjust height for content */
+  padding: 2rem 1rem; /* Add padding */
   background-color: #343A40; /* Secondary background color */
   border-radius: 25px; /* Rounded corners */
   margin: 1rem auto; /* Center the hero section */
