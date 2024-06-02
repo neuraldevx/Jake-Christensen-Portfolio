@@ -31,7 +31,7 @@ const certifications = [
 
 const Certifications: React.FC = () => {
   return (
-    <section className="container mt-6">
+    <section className="container">
       <div className="columns is-centered">
         <div className="column is-three-quarters">
           <div className="card hover-card">
