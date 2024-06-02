@@ -14,16 +14,16 @@ interface NavItem {
 const navItems: Record<string, NavItem> = {
   '/': {
     name: 'Home',
-    className: 'navbar-item is-white-glow'
+    className: 'navbar-item'
   },
   '/projects': {
     name: 'Projects',
-    className: 'navbar-item is-white-glow'
+    className: 'navbar-item'
   },
   'https://buymeacoffee.com/jakechristensen': {
     name: 'Buy Me a Coffee',
     icon: <div className='py-4 flex'><CiCoffeeCup /></div>,
-    className: 'navbar-item is-white-glow'
+    className: 'navbar-item'
   },
 };
 
@@ -63,9 +63,9 @@ export function Navbar() {
         <div id="navbarMenu" className={`navbar-menu ${isActive ? 'is-active' : ''}`}>
           <div className="navbar-start">
             {Object.entries(navItems).map(([path, { name, icon, className }]) => (
-              <Link href={path} key={path} className={className}>
+              <Link href={path} key={path} className={className} style={{ color: 'var(--navbar-text-color)' }}>
                 {icon && <span className="icon">{icon}</span>}
-                <span style={{ color: 'var(--text-color)' }}>{name}</span>
+                <span>{name}</span>
               </Link>
             ))}
           </div>

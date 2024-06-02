@@ -387,6 +387,15 @@ html {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  background-color: var(--card-background-color);
+  border: 1px solid #30363D;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px var(--default-glow-color);
+}
+
+.contact-form:hover {
+  box-shadow: 0 10px 20px var(--hover-glow-color);
+  transform: translateY(-10px);
 }
 
 .contact-form input,
@@ -425,4 +434,18 @@ html {
 .card-header-title .icon {
   margin-right: 0.5rem;
   color: var(--text-color);
+}
+
+/* Certifications Section Styles */
+.certifications-section .box {
+  background-color: var(--card-background-color);
+  border: 1px solid #30363D;
+  border-radius: 12px;
+  transition: box-shadow 0.3s ease, transform 0.1s ease;
+  box-shadow: 0 10px 20px var(--default-glow-color);
+}
+
+.certifications-section .box:hover {
+  box-shadow: 0 10px 20px var(--hover-glow-color);
+  transform: translateY(-10px);
 }
