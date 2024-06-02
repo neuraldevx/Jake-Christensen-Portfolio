@@ -13,8 +13,9 @@
   --card-background-color: #ffffff;
   --button-background-color: #6c757d;
   --button-text-color: #ffffff;
-  --navbar-background-color: #14161a;
-  --navbar-text-color: #ffffff;
+  --navbar-background-color: #ffffff;
+  --navbar-text-color: #212529;
+  --link-color: #007bff;
 }
 
 /* Dark Theme Variables */
@@ -26,6 +27,7 @@
   --button-text-color: #ffffff;
   --navbar-background-color: #1a1a1a;
   --navbar-text-color: #e0e0e0;
+  --link-color: #90caf9;
 }
 
 /* General Styles */
@@ -48,7 +50,7 @@ html {
   background-color: var(--navbar-background-color);
 }
 
-.navbar-item, .navbar-burger, .navbar-brand .navbar-item, .card-header-title, .card-header-title .icon, .card a {
+.navbar-item, .navbar-burger, .navbar-brand .navbar-item, .card-header-title, .card-header-title .icon, .card a, .navbar-end .navbar-item {
   color: var(--navbar-text-color);
 }
 
@@ -136,6 +138,7 @@ html {
 
 .card a {
   text-decoration: underline;
+  color: var(--link-color);
 }
 
 .icon-white {
@@ -290,15 +293,18 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: var(--text-color);
 }
 
 .header-icon {
   margin-right: 15px;
+  color: var(--text-color);
 }
 
 .header-text {
   display: inline-block;
   vertical-align: middle;
+  color: var(--text-color);
 }
 
 /* Skills Section Styles */
@@ -399,4 +405,5 @@ html {
 
 .card-header-title .icon {
   margin-right: 0.5rem;
+  color: var(--text-color);
 }
