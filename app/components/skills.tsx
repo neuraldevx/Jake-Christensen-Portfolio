@@ -9,8 +9,8 @@ const skills = [
   { name: 'JavaScript', icon: <FaJs className="icon has-text-warning" /> },
   { name: 'TypeScript', icon: <SiTypescript className="icon has-text-info" /> },
   { name: 'Git', icon: <FaGitAlt className="icon has-text-danger" /> },
-  { name: 'TailWind CSS', icon: <SiTailwindcss className="icon has-text-info" /> },
-  { name: 'Vercel', icon: <SiVercel className="icon has-text-white" /> },
+  { name: 'TailWind', icon: <SiTailwindcss className="icon has-text-info" /> },
+  { name: 'Vercel', icon: <SiVercel className="icon has-text-black" /> },
   { name: 'Next.js', icon: <SiNextdotjs className="icon has-text-success" /> },
   { name: 'TensorFlow', icon: <SiTensorflow className="icon has-text-white" /> },
 ];
