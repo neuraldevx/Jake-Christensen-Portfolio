@@ -42,7 +42,7 @@ const ProfileSection = () => {
     <section className="container mt-6 profile-section">
       <div className="columns is-multiline is-variable is-8">
         {sections.map((section, idx) => (
-          <div key={idx} className="column is-one-quarter-desktop is-half-tablet">
+          <div key={idx} className="column is-full-mobile is-half-tablet is-one-quarter-desktop">
             <div className="card hover-card is-flex is-flex-direction-column same-height">
               <header className="card-header">
                 <p className="card-header-title">
