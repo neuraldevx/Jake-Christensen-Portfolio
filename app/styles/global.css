@@ -99,6 +99,7 @@ html {
 
 .section {
   padding: 1rem 1.5rem;
+  margin-bottom: 3rem; /* Added consistent spacing between sections */
 }
 
 @media (max-width: 768px) {
@@ -215,7 +216,7 @@ html {
 
 @keyframes glow {
   from {
-    text-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color), 0 0 15px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--glow-color), 0 0 40px var(--glow-color), 0 0 55px var(--glow-color), 0 0 75px var(--glow-color);
+    text-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color), 0 0 15px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--glow-color), 0 0 40px var(--glow-color), 0 0 55px var (--glow-color), 0 0 75px var(--glow-color);
   }
   to {
     text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--glow-color), 0 0 40px var(--glow-color), 0 0 50px var(--glow-color), 0 0 60px var(--glow-color), 0 0 75px var(--glow-color), 0 0 100px var(--glow-color);
@@ -477,4 +478,3 @@ html {
     margin: 0.5rem;
   }
 }
-
