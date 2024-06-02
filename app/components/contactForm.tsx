@@ -37,12 +37,12 @@ const ContactForm: React.FC = () => {
         <div className="column">
           <div className="card hover-card custom-background">
             <header className="card-header custom-card-header">
-              <p className="card-header-title has-text-white">Contact Me</p>
+              <p className="card-header-title" style={{ color: 'var(--text-color)' }}>Contact Me</p>
             </header>
             <div className="card-content">
               <form onSubmit={handleSubmit}>
                 <div className="field">
-                  <label className="label has-text-grey-light">Name</label>
+                  <label className="label" style={{ color: 'var(--text-color)' }}>Name</label>
                   <div className="control">
                     <input
                       className="input custom-input"
@@ -55,7 +55,7 @@ const ContactForm: React.FC = () => {
                   </div>
                 </div>
                 <div className="field">
-                  <label className="label has-text-grey-light">Email</label>
+                  <label className="label" style={{ color: 'var(--text-color)' }}>Email</label>
                   <div className="control">
                     <input
                       className="input custom-input"
@@ -68,7 +68,7 @@ const ContactForm: React.FC = () => {
                   </div>
                 </div>
                 <div className="field">
-                  <label className="label has-text-grey-light">Message</label>
+                  <label className="label" style={{ color: 'var(--text-color)' }}>Message</label>
                   <div className="control">
                     <textarea
                       className="textarea custom-input"
@@ -87,7 +87,7 @@ const ContactForm: React.FC = () => {
                   </div>
                 </div>
               </form>
-              {formStatus && <p className="has-text-grey-light">{formStatus}</p>}
+              {formStatus && <p style={{ color: 'var(--text-color)' }}>{formStatus}</p>}
             </div>
           </div>
         </div>

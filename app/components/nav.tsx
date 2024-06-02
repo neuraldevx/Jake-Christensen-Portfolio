@@ -5,14 +5,6 @@ import { CiCoffeeCup } from "react-icons/ci";
 import StarButton from './starButton';
 import { MdLightMode, MdDarkMode } from 'react-icons/md';
 
-function MoonIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
-    </svg>
-  );
-}
-
 interface NavItem {
   name: string;
   icon?: JSX.Element;
@@ -59,7 +51,7 @@ export function Navbar() {
   };
 
   return (
-    <nav className="navbar has-background-black-bis is-spaced">
+    <nav className="navbar has-background-black is-spaced">
       <div className="container">
         <div className="navbar-brand">
           <div className={`navbar-burger burger ${isActive ? 'is-active' : ''}`} data-target="navbarMenu" onClick={toggleBurgerMenu}>
@@ -73,7 +65,7 @@ export function Navbar() {
             {Object.entries(navItems).map(([path, { name, icon, className }]) => (
               <Link href={path} key={path} className={className}>
                 {icon && <span className="icon">{icon}</span>}
-                <span>{name}</span>
+                <span style={{ color: 'var(--text-color)' }}>{name}</span>
               </Link>
             ))}
           </div>

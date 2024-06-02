@@ -23,6 +23,7 @@ const certifications = [
     title: 'Intro to Machine Learning',
     issuer: 'Kaggle',
     date: 'April 2024',
+    credentialId: 'NA',
     url: 'https://www.kaggle.com/learn/certification/jakerchristensen/intro-to-machine-learning',
     skills: 'Machine Learning'
   },
@@ -35,20 +36,20 @@ const Certifications: React.FC = () => {
         <div className="column is-three-quarters">
           <div className="card hover-card">
             <header className="card-header">
-              <p className="card-header-title has-text-white">
-                <FaCertificate className="icon is-medium"/> Certifications
+              <p className="card-header-title" style={{ color: 'var(--text-color)' }}>
+                <FaCertificate className="icon is-medium" /> Certifications
               </p>
             </header>
             <div className="card-content">
               <div className="content">
                 {certifications.map((cert, idx) => (
                   <div key={idx} className="mb-4">
-                    <p className="title is-5 has-text-white">{cert.title}</p>
-                    <p className="subtitle is-6 has-text-grey-light">{cert.issuer}</p>
-                    <p className="has-text-grey-light">{cert.date}</p>
-                    <p className="has-text-grey-light">Credential ID: {cert.credentialId}</p>
-                    <p className="has-text-grey-light">Skills: {cert.skills}</p>
-                    <a href={cert.url} target="_blank" rel="noopener noreferrer" className="icon has-text-grey-light ml-2">
+                    <p className="title is-5" style={{ color: 'var(--text-color)' }}>{cert.title}</p>
+                    <p className="subtitle is-6" style={{ color: 'var(--text-color)' }}>{cert.issuer}</p>
+                    <p style={{ color: 'var(--text-color)' }}>{cert.date}</p>
+                    <p style={{ color: 'var(--text-color)' }}>Credential ID: {cert.credentialId}</p>
+                    <p style={{ color: 'var(--text-color)' }}>Skills: {cert.skills}</p>
+                    <a href={cert.url} target="_blank" rel="noopener noreferrer" className="icon ml-2" style={{ color: 'var(--text-color)' }}>
                       <FaExternalLinkAlt />
                     </a>
                   </div>
