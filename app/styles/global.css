@@ -170,9 +170,9 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
   background-color: #343A40;
   border-radius: 25px;
+  padding: 2rem;
   margin: 1rem auto;
   max-width: 1000px;
   color: #CED4DA;
@@ -180,19 +180,25 @@ html {
 
 .custom-hero-body {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   width: 100%;
 }
 
 .custom-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   border-radius: 25px;
   padding: 1rem;
-  width: 90%;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .custom-container {
+    flex-direction: row;
+  }
 }
 
 .custom-hero .title, .custom-hero .subtitle, .custom-hero .has-text-white {
