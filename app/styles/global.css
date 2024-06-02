@@ -1,11 +1,3 @@
-@import 'bulma/css/bulma.css';
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* Light Theme Variables */
 :root {
   --background-color: #f8f9fa;
@@ -13,8 +5,8 @@
   --card-background-color: #ffffff;
   --button-background-color: #6c757d;
   --button-text-color: #ffffff;
-  --navbar-background-color: #000000; /* Ensure navbar is black */
-  --navbar-text-color: #ffffff; /* Set white text for navbar in light mode */
+  --navbar-background-color: #000000;
+  --navbar-text-color: #ffffff;
   --link-color: #007bff;
   --glow-color: #95f1ed;
   --hover-glow-color: rgba(152, 230, 230, 0.6);
@@ -28,8 +20,8 @@
   --card-background-color: #1f1f1f;
   --button-background-color: #6c757d;
   --button-text-color: #ffffff;
-  --navbar-background-color: #000000; /* Ensure navbar is black */
-  --navbar-text-color: #ffffff; /* Ensure white text for navbar in dark mode */
+  --navbar-background-color: #000000;
+  --navbar-text-color: #ffffff;
   --link-color: #90caf9;
   --glow-color: #ff00ff;
   --hover-glow-color: rgba(152, 230, 230, 0.6);
@@ -56,11 +48,18 @@ html {
   background-color: var(--navbar-background-color);
 }
 
-.navbar-item, .navbar-burger, .navbar-brand .navbar-item, .card-header-title, .card-header-title .icon, .card a, .navbar-end .navbar-item {
+.navbar-item,
+.navbar-burger,
+.navbar-brand .navbar-item,
+.card-header-title,
+.card-header-title .icon,
+.card a,
+.navbar-end .navbar-item {
   color: var(--navbar-text-color);
 }
 
-.navbar-item:hover, .card:hover {
+.navbar-item:hover,
+.card:hover {
   color: var(--navbar-text-color);
 }
 
@@ -84,7 +83,8 @@ html {
   background-color: var(--background-color);
 }
 
-.project-card, .hover-card {
+.project-card,
+.hover-card {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
   background-color: var(--card-background-color);
   border: 1px solid #30363D;
@@ -92,14 +92,14 @@ html {
   box-shadow: 0 10px 20px var(--default-glow-color);
 }
 
-.project-card:hover, .hover-card:hover {
+.project-card:hover,
+.hover-card:hover {
   box-shadow: 0 10px 20px var(--hover-glow-color);
   transform: translateY(-10px);
 }
 
 .section {
   padding: 1rem 1.5rem;
-  margin-bottom: 3rem; /* Added consistent spacing between sections */
 }
 
 @media (max-width: 768px) {
@@ -109,7 +109,8 @@ html {
     text-align: center;
   }
 
-  .text-content, .tech-info {
+  .text-content,
+  .tech-info {
     max-width: 100%;
     margin-bottom: 1rem;
   }
@@ -127,7 +128,8 @@ html {
     font-size: 1rem;
   }
 
-  .buttons .icon, .tech-info .icon {
+  .buttons .icon,
+  .tech-info .icon {
     font-size: 1.2rem;
     margin: 0.3rem;
   }
@@ -144,13 +146,21 @@ html {
   }
 
   .tech-info p {
-    font-size: 0.875rem; /* Adjust font size for mobile */
-    margin-top: 0.5rem; /* Adjust this value as needed */
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+
+  .project-card,
+  .hover-card {
+    flex: 1 1 100%;
+    margin-bottom: 1rem;
   }
 }
 
 /* Ensure card text is readable */
-.card .title, .card .subtitle, .card .content {
+.card .title,
+.card .subtitle,
+.card .content {
   color: var(--text-color);
 }
 
@@ -194,8 +204,8 @@ html {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 2rem; /* Adjust this value as needed */
-  margin-left: 2rem; /* Adjust this value to move the text to the right */
+  margin-top: 2rem;
+  margin-left: 2rem;
 }
 
 .tech-info .icons {
@@ -216,10 +226,10 @@ html {
 
 @keyframes glow {
   from {
-    text-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color), 0 0 15px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--glow-color), 0 0 40px var(--glow-color), 0 0 55px var (--glow-color), 0 0 75px var(--glow-color);
+    text-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color), 0 0 15px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--glow-color), 0 0 40px var(--glow-color), 0 0 55px var(--glow-color), 0 0 75px var(--glow-color);
   }
   to {
-    text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--glow-color), 0 0 40px var(--glow-color), 0 0 50px var(--glow-color), 0 0 60px var(--glow-color), 0 0 75px var(--glow-color), 0 0 100px var(--glow-color);
+    text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var (--glow-color), 0 0 40px var(--glow-color), 0 0 50px var(--glow-color), 0 0 60px var(--glow-color), 0 0 75px var(--glow-color), 0 0 100px var(--glow-color);
   }
 }
 
@@ -261,15 +271,19 @@ html {
   }
 }
 
-.custom-hero .title, .custom-hero .subtitle, .custom-hero .has-text-white {
+.custom-hero .title,
+.custom-hero .subtitle,
+.custom-hero .has-text-white {
   color: var(--text-color);
 }
 
-.custom-hero .buttons a, .custom-hero .tech-info .icon {
+.custom-hero .buttons a,
+.custom-hero .tech-info .icon {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.custom-hero .buttons a:hover, .custom-hero .tech-info .icon:hover {
+.custom-hero .buttons a:hover,
+.custom-hero .tech-info .icon:hover {
   transform: scale(1.1);
   color: #F8F9FA;
 }
