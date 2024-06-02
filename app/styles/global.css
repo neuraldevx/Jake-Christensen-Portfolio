@@ -131,7 +131,7 @@ html {
   }
 }
 
-/* Ensure card text is white */
+/* Ensure card text is readable */
 .card .title, .card .subtitle, .card .content {
   color: var(--text-color);
 }
@@ -163,7 +163,7 @@ html {
 
 .text-content .subtitle {
   font-size: 1.25rem;
-  color: #8B949E;
+  color: var(--text-color);
 }
 
 .buttons .icon {
