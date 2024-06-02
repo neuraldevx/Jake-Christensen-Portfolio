@@ -30,7 +30,7 @@ const childVariants = {
 
 const Intro = () => {
   return (
-    <section className="hero is-bold my-40 custom-hero" style={{ backgroundColor: '#161B22', border: '1px solid #30363D' }}>
+    <section className="hero is-bold my-40 custom-hero">
       <div className="hero-body custom-hero-body">
         <motion.div
           className="container custom-container"
@@ -80,14 +80,14 @@ const Intro = () => {
             />
           </motion.figure>
           <div className="tech-info">
-            <p className="has-text-white is-size-5">Made with:</p>
+            <p className="is-size-5">Made with:</p>
             <div className="icons">
               <SiNextdotjs className="icon glow" />
               <SiVercel className="icon glow" />
               <SiTailwindcss className="icon glow" />
             </div>
-            <p className="has-text-white is-size-6">Deployed with Vercel</p>
-            <p className="has-text-white is-size-6">Styled with Tailwind CSS</p>
+            <p className="is-size-6">Deployed with Vercel</p>
+            <p className="is-size-6">Styled with Tailwind CSS</p>
           </div>
         </motion.div>
       </div>
