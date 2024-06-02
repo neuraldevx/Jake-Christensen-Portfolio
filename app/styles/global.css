@@ -1,3 +1,11 @@
+@import 'bulma/css/bulma.css';
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Light Theme Variables */
 :root {
   --background-color: #f8f9fa;
@@ -5,8 +13,8 @@
   --card-background-color: #ffffff;
   --button-background-color: #6c757d;
   --button-text-color: #ffffff;
-  --navbar-background-color: #000000;
-  --navbar-text-color: #ffffff;
+  --navbar-background-color: #000000; 
+  --navbar-text-color: #ffffff; 
   --link-color: #007bff;
   --glow-color: #95f1ed;
   --hover-glow-color: rgba(152, 230, 230, 0.6);
@@ -21,7 +29,7 @@
   --button-background-color: #6c757d;
   --button-text-color: #ffffff;
   --navbar-background-color: #000000;
-  --navbar-text-color: #ffffff;
+  --navbar-text-color: #ffffff; 
   --link-color: #90caf9;
   --glow-color: #ff00ff;
   --hover-glow-color: rgba(152, 230, 230, 0.6);
@@ -229,7 +237,7 @@ html {
     text-shadow: 0 0 5px var(--glow-color), 0 0 10px var(--glow-color), 0 0 15px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--glow-color), 0 0 40px var(--glow-color), 0 0 55px var(--glow-color), 0 0 75px var(--glow-color);
   }
   to {
-    text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var (--glow-color), 0 0 40px var(--glow-color), 0 0 50px var(--glow-color), 0 0 60px var(--glow-color), 0 0 75px var(--glow-color), 0 0 100px var(--glow-color);
+    text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--glow-color), 0 0 40px var(--glow-color), 0 0 50px var(--glow-color), 0 0 60px var(--glow-color), 0 0 75px var(--glow-color), 0 0 100px var(--glow-color);
   }
 }
 
