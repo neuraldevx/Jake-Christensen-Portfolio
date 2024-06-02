@@ -1,8 +1,9 @@
 "use client";
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { CiCoffeeCup } from "react-icons/ci";
 import StarButton from './starButton';
+import { MdLightMode, MdDarkMode } from 'react-icons/md';
 
 function MoonIcon() {
   return (
@@ -36,6 +37,22 @@ const navItems: Record<string, NavItem> = {
 
 export function Navbar() {
   const [isActive, setIsActive] = useState(false);
+  const [theme, setTheme] = useState('light');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const storedTheme = localStorage.getItem('theme') || 'light';
+      setTheme(storedTheme);
+      document.documentElement.setAttribute('data-theme', storedTheme);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+  };
 
   const toggleBurgerMenu = () => {
     setIsActive(!isActive);
@@ -45,9 +62,6 @@ export function Navbar() {
     <nav className="navbar has-background-black-bis is-spaced">
       <div className="container">
         <div className="navbar-brand">
-          <Link href="/" className="navbar-item">
-            <MoonIcon />
-          </Link>
           <div className={`navbar-burger burger ${isActive ? 'is-active' : ''}`} data-target="navbarMenu" onClick={toggleBurgerMenu}>
             <span></span>
             <span></span>
@@ -64,6 +78,11 @@ export function Navbar() {
             ))}
           </div>
           <div className="navbar-end">
+            <div className="navbar-item">
+              <button className="button is-light" onClick={toggleTheme}>
+                {theme === 'light' ? <MdDarkMode size={24} /> : <MdLightMode size={24} />}
+              </button>
+            </div>
             <div className="navbar-item">
               <StarButton />
             </div>

@@ -6,6 +6,28 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Light Theme Variables */
+:root {
+  --background-color: #f8f9fa;
+  --text-color: #212529;
+  --card-background-color: #ffffff;
+  --button-background-color: #6c757d;
+  --button-text-color: #ffffff;
+  --navbar-background-color: #14161a;
+  --navbar-text-color: #ffffff;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --card-background-color: #1f1f1f;
+  --button-background-color: #6c757d;
+  --button-text-color: #ffffff;
+  --navbar-background-color: #1a1a1a;
+  --navbar-text-color: #e0e0e0;
+}
+
 /* General Styles */
 ::selection {
   background-color: #47a3f3;
@@ -14,29 +36,42 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  color: #C9D1D9;
-  background-color: #14161a;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 html {
   min-width: 360px;
 }
 
-.hero, .navbar {
-  background-color: #14161a;
+.navbar {
+  background-color: var(--navbar-background-color);
 }
 
-.navbar-burger, .navbar-item, .card-header-title, .card-header-title .icon, .card a {
-  color: #fff;
+.navbar-item, .navbar-burger, .navbar-brand .navbar-item, .card-header-title, .card-header-title .icon, .card a {
+  color: var(--navbar-text-color);
 }
 
 .navbar-item:hover, .card:hover {
-  color: #fff;
+  color: var(--navbar-text-color);
+}
+
+.card {
+  background-color: var(--card-background-color);
+}
+
+.button {
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+}
+
+.hero {
+  background-color: var(--background-color);
 }
 
 .project-card, .hover-card {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
-  background-color: #14161a;
+  background-color: var(--card-background-color);
   border: 1px solid #30363D;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
@@ -96,7 +131,7 @@ html {
 
 /* Ensure card text is white */
 .card .title, .card .subtitle, .card .content {
-  color: white;
+  color: var(--text-color);
 }
 
 .card a {
@@ -104,7 +139,7 @@ html {
 }
 
 .icon-white {
-  color: white !important;
+  color: var(--text-color) !important;
 }
 
 .jumbotron-image {
@@ -120,7 +155,7 @@ html {
 
 .text-content .title {
   font-size: 2rem;
-  color: #C9D1D9;
+  color: var(--text-color);
 }
 
 .text-content .subtitle {
@@ -149,7 +184,7 @@ html {
 .tech-info .icon {
   font-size: 1.5rem;
   margin: 0.5rem;
-  color: #C9D1D9;
+  color: var(--text-color);
 }
 
 .glow {
@@ -170,12 +205,12 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #161B22;
+  background-color: var(--background-color);
   border-radius: 25px;
   padding: 2rem;
   margin: 1rem auto;
   max-width: 1000px;
-  color: #CED4DA;
+  color: var(--text-color);
   border: 1px solid #30363D;
 }
 
@@ -203,7 +238,7 @@ html {
 }
 
 .custom-hero .title, .custom-hero .subtitle, .custom-hero .has-text-white {
-  color: #CED4DA;
+  color: var(--text-color);
 }
 
 .custom-hero .buttons a, .custom-hero .tech-info .icon {
@@ -223,7 +258,7 @@ html {
 /* Profile cards size and layout */
 .profile-section .card {
   height: 100%;
-  background-color: #14161a;
+  background-color: var(--card-background-color);
   border: 1px solid #30363D;
 }
 
@@ -268,7 +303,7 @@ html {
 
 /* Skills Section Styles */
 .skills-section .box {
-  background-color: #14161a;
+  background-color: var(--card-background-color);
   border: 1px solid #30363D;
   border-radius: 12px;
   transition: box-shadow 0.3s ease, transform 0.1s ease;
@@ -281,8 +316,8 @@ html {
 
 /* Footer Styles */
 .footer {
-  background-color: #14161a;
-  color: #FFFFFF;
+  background-color: var(--background-color);
+  color: var(--text-color);
   padding: 2rem 0;
   text-align: center;
   display: flex;
@@ -298,8 +333,8 @@ html {
 }
 
 .footer-button {
-  color: #FFFFFF;
-  background: none;
+  color: var(--button-text-color);
+  background: var(--button-background-color);
   display: flex;
   align-items: center;
   padding: 0.25rem 0.5rem;
