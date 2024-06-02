@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { BsTwitter } from 'react-icons/bs';
+import { BsTwitterX } from "react-icons/bs";
 import { MailIcon } from '@heroicons/react/outline';
 import { Linkedin, GitHub } from 'react-feather';
 import { SiNextdotjs, SiVercel, SiTailwindcss } from 'react-icons/si';
@@ -21,7 +21,7 @@ const containerVariants = {
 
 const Intro = () => {
   return (
-    <section className="hero my-6 p-4 custom-hero">
+    <section className="hero my-6 p-8 custom-hero">
       <div className="hero-body">
         <motion.div
           className="container"
@@ -35,7 +35,7 @@ const Intro = () => {
               <p className="subtitle has-text-white is-size-5-mobile is-size-4-tablet custom-subtitle">Passionate Developer | AI & Data Engineer | UW-Madison '24</p>
               <div className="buttons is-centered">
                 <a href="https://twitter.com/realjakechris" aria-label="Twitter" className="button is-light">
-                  <BsTwitter size={24} />
+                  <BsTwitterX size={24} />
                 </a>
                 <a href="mailto:Jrchris511@gmail.com" aria-label="Email" className="button is-light">
                   <MailIcon width={24} height={24} />
@@ -50,7 +50,7 @@ const Intro = () => {
             </div>
             <div className="column is-half has-text-centered">
               <motion.figure
-                className="image is-128x128 mx-auto jumbotron-image"
+                className="image is-256x256 mx-auto jumbotron-image"
                 animate={{
                   scale: [1, 1.2, 1.2, 1, 1],
                   rotate: [0, 0, 360, 360, 0],

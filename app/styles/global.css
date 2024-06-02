@@ -170,12 +170,13 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #343A40;
+  background-color: #161B22;
   border-radius: 25px;
   padding: 2rem;
   margin: 1rem auto;
   max-width: 1000px;
   color: #CED4DA;
+  border: 1px solid #30363D;
 }
 
 .custom-hero-body {
@@ -212,6 +213,11 @@ html {
 .custom-hero .buttons a:hover, .custom-hero .tech-info .icon:hover {
   transform: scale(1.1);
   color: #F8F9FA;
+}
+
+.custom-hero:hover {
+  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.5);
+  transform: translateY(-10px);
 }
 
 /* Profile cards size and layout */
