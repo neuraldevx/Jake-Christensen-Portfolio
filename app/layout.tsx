@@ -16,15 +16,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className="d-flex flex-column min-vh-100 ">
+      <body className="flex flex-col min-h-screen">
         <ScrollProgressBar />
         <Navbar />
-        <main className="flex-fill">
+        <main className="flex-grow">
           {children}
         </main>
-        <Footer/>
-        <Analytics/>
-        <SpeedInsights/>
+        <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
