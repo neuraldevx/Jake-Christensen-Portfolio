@@ -14,7 +14,7 @@
   --button-background-color: #6c757d;
   --button-text-color: #ffffff;
   --navbar-background-color: #000000; /* Ensure navbar is black */
-  --navbar-text-color: #ffffff;
+  --navbar-text-color: #ffffff; /* Set white text for navbar in light mode */
   --link-color: #007bff;
   --glow-color: #95f1ed;
   --hover-glow-color: rgba(152, 230, 230, 0.6);
@@ -29,7 +29,7 @@
   --button-background-color: #6c757d;
   --button-text-color: #ffffff;
   --navbar-background-color: #000000; /* Ensure navbar is black */
-  --navbar-text-color: #e0e0e0;
+  --navbar-text-color: #ffffff; /* Ensure white text for navbar in dark mode */
   --link-color: #90caf9;
   --glow-color: #ff00ff;
   --hover-glow-color: rgba(152, 230, 230, 0.6);
@@ -292,6 +292,12 @@ html {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .profile-section .column {
+    flex: 1 1 100%;
+  }
 }
 
 .profile-section .card {

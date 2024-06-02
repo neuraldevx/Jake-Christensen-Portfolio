@@ -30,7 +30,7 @@ const childVariants = {
 
 const Intro = () => {
   return (
-    <section className="hero is-bold my-40 custom-hero" style={{ backgroundColor: 'var(--background-color)', border: '1px solid #30363D' }}>
+    <section className="hero is-bold my-40 custom-hero" style={{ backgroundColor: '#161B22', border: '1px solid #30363D' }}>
       <div className="hero-body custom-hero-body">
         <motion.div
           className="container custom-container"
@@ -39,9 +39,9 @@ const Intro = () => {
           animate="visible"
         >
           <div className="text-content">
-            <h1 className="title custom-title" style={{ color: 'var(--text-color)' }}>Jacob Christensen</h1>
-            <p className="subtitle custom-subtitle" style={{ color: 'var(--text-color)' }}>Passionate Developer | AI & Data Engineer | UW-Madison '24</p>
-            <div className="buttons">
+            <h1 className="title custom-title">Jacob Christensen</h1>
+            <p className="subtitle custom-subtitle">Passionate Developer | AI & Data Engineer | UW-Madison '24</p>
+            <div className="buttons social-icons">
               <a href="https://twitter.com/realjakechris" aria-label="X" className="icon is-large icon-white hover">
                 <BsTwitter size={24} />
               </a>
@@ -80,14 +80,14 @@ const Intro = () => {
             />
           </motion.figure>
           <div className="tech-info">
-            <p className="has-text-white is-size-5" style={{ color: 'var(--text-color)' }}>Made with:</p>
+            <p className="has-text-white is-size-5">Made with:</p>
             <div className="icons">
               <SiNextdotjs className="icon glow" />
               <SiVercel className="icon glow" />
               <SiTailwindcss className="icon glow" />
             </div>
-            <p className="has-text-white is-size-6" style={{ color: 'var(--text-color)' }}>Deployed with Vercel</p>
-            <p className="has-text-white is-size-6" style={{ color: 'var(--text-color)' }}>Styled with Tailwind CSS</p>
+            <p className="has-text-white is-size-6">Deployed with Vercel</p>
+            <p className="has-text-white is-size-6">Styled with Tailwind CSS</p>
           </div>
         </motion.div>
       </div>
