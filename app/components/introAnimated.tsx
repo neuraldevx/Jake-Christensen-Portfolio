@@ -30,10 +30,10 @@ const childVariants = {
 
 const Intro = () => {
   return (
-    <section className="hero is-bold my-40 custom-hero">
+    <section className="hero is-bold my-40 custom-hero ml:16">
       <div className="hero-body custom-hero-body">
         <motion.div
-          className="container custom-container"
+          className="container custom-container flex justify-between items-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -57,14 +57,14 @@ const Intro = () => {
             </div>
           </div>
           <motion.figure
-            className="image is-256x256 jumbotron-image"
+            className="flex image is-256x256 jumbotron-image ml-8 md:ml-16"
             animate={{
-              scale: [1, 1.2, 1.2, 1, 1],
+              scale: [1, 1.1, 1.1, 1, 1],
               rotate: [0, 0, 360, 360, 0],
               borderRadius: ['50%', '50%', '50%', '50%', '50%'],
             }}
             transition={{
-              duration: 10,
+              duration: 5,
               ease: 'easeInOut',
               times: [0, 0.2, 0.5, 0.8, 1],
               repeat: 1,
