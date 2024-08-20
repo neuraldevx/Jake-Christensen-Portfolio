@@ -24,7 +24,7 @@ const ProfileSection = () => {
       title: 'Experience',
       content: [
         { header: 'Software Developer Intern', subtext: ['Publix, May 2023 – August 2023'] },
-        { header: 'Research Assistant', subtext: ['University of Wisconsin-Madison IT Help Desk, October 2022 – May 2023'] },
+        { header: 'Undergraduate Research Assistant', subtext: ['University of Wisconsin-Madison HTCondor, June 2022 – August 2022'] },
       ],
       icon: <FaHandshake className="icon is-medium header-icon" />,
     },
