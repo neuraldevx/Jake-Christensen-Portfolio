@@ -37,3 +37,8 @@ This is a personal portfolio website, showcasing projects, skills, and experienc
 - [Vercel](https://vercel.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [GitHub API](https://docs.github.com/en/rest)
+
+## Bug or Section I'm Currently Working on
+- Projects section, as I have placeholders for most of the project logic thats currently implemented
+- Looking to advance this page and improve the overall look/feel
+- Also looking to improve the overall quality of the entire site, as I feel it could have a more pleasing aesthetic
