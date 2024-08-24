@@ -1,7 +1,6 @@
 # Personal Portfolio
 
-<img width="1440" alt="Screenshot 2024-05-22 at 7 37 25 AM" src="https://github.com/neuraldevx/Jake-Christensen-Portfolio/assets/83853752/405b4933-4ddd-4ea9-b2c3-ec7ab7680f5b">
-
+<img width="1440" alt="Screenshot 2024-08-23 at 10 32 32 PM" src="https://github.com/user-attachments/assets/e42d1453-0439-40aa-b23f-d3f721aa1065">
 
 ## Table of Contents
 
